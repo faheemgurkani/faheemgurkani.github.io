@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
 
         {/* Right Column: Form */}
         <div className="bg-neutral-900/30 border border-neutral-800 p-8 rounded-sm">
-          <form action="https://formsubmit.co/faheemgurkani@gmail.com" method="POST" className="space-y-4">
+          <form action="https://formsubmit.co/32703517175793864b061a2c1063759f" method="POST" className="space-y-4">
              {/* FormSubmit Configuration */}
              <input type="hidden" name="_captcha" value="false" />
              <input type="hidden" name="_subject" value="New Portfolio Contact Submission" />
