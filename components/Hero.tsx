@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
               <span className="text-sm text-neutral-400">Available for Backend and R&D Roles</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 [word-spacing:-0.5ch]">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 [word-spacing:-0.5ch]">
               Muhammad Faheem
             </h1>
             

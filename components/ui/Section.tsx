@@ -12,8 +12,8 @@ const Section: React.FC<SectionProps> = ({ id, title, children, className = "" }
     <section id={id} className={`scroll-mt-20 py-20 px-4 md:px-8 border-b border-neutral-900 ${className}`}>
       <div className="max-w-6xl mx-auto">
         {title && (
-          <h2 className="text-3xl font-bold mb-12 text-white flex items-center">
-            <span className="text-neutral-600 mr-2">#</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-white flex items-center tracking-tight">
+            <span className="text-neutral-700 mr-3 opacity-50">#</span>
             {title}
           </h2>
         )}
