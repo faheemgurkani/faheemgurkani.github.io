@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
             <div className="flex justify-between items-start mb-4">
               <Folder className="w-8 h-8 text-neutral-500 group-hover:text-white transition-colors" />
               <a 
-                href="https://github.com/faheemgurkani" 
+                href="https://github.com/faheemgurkani?tab=repositories" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="text-neutral-500 hover:text-white transition-colors duration-300"
