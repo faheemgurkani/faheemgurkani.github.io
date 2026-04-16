@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #e5e5e5;
+  --surface: #171717;
+  --surface-alt: #202020;
+  --border: #333333;
+  --muted: #898989;
+}
+
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+  --surface: #f3f3f3;
+  --surface-alt: #e8e8e8;
+  --border: #191a23;
+  --muted: #898989;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "JetBrains Mono", monospace;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+/* Navbar CTA button: white on black (dark), black on white (light) */
+[data-theme="dark"] .nav-cta-btn,
+:root .nav-cta-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+[data-theme="dark"] .nav-cta-btn:hover,
+:root .nav-cta-btn:hover {
+  background-color: #e5e5e5;
+  border-color: #e5e5e5;
+}
+[data-theme="light"] .nav-cta-btn {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+[data-theme="light"] .nav-cta-btn:hover {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
