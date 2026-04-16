@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-wrap justify-center items-center gap-2 mb-12">
               <ResumeDropdown variant="hero" />
               <div
-                className="min-w-[3px] w-[3px] h-9 bg-neutral-300 shrink-0 self-center"
+                className="min-w-[2.5px] w-[2.5px] h-9 bg-neutral-300 shrink-0 self-center"
                 aria-hidden="true"
               />
               <div className="-ml-2">
