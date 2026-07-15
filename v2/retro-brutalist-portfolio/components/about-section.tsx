@@ -2,13 +2,15 @@
 
 import { useEffect, useState } from "react"
 import { aboutData } from "@/lib/portfolio-data"
-import { fetchGitHubStatsLite, type GitHubStats } from "@/lib/github"
+import { fetchGitHubStats, type GitHubStats } from "@/lib/github"
 import { ProcessingDots } from "@/components/processing-dots"
 import { StatCounter, type StatItem } from "@/components/stat-counter"
 
 interface AboutSectionProps {
   data?: typeof aboutData
 }
+
+const REFRESH_MS = 5 * 60 * 1000
 
 function buildStats(live?: Partial<GitHubStats> | null): StatItem[] {
   if (!live || typeof live.projectCount !== "number") return aboutData.stats
@@ -18,7 +20,7 @@ function buildStats(live?: Partial<GitHubStats> | null): StatItem[] {
   const stars = live.totalStars ?? 0
   const linesK =
     live.linesOfCodeK ??
-    (live.linesOfCode ? Math.max(1, Math.round(live.linesOfCode / 1000)) : undefined)
+    (live.linesOfCode ? Math.max(1, Math.round(live.linesOfCode / 1000)) : 1)
 
   return [
     {
@@ -40,66 +42,61 @@ function buildStats(live?: Partial<GitHubStats> | null): StatItem[] {
       target: stars,
       pad: 3,
     },
-    linesK != null
-      ? {
-          value: `${linesK}k`,
-          label: "Lines",
-          target: linesK,
-          suffix: "k",
-        }
-      : {
-          value: String(live.followers ?? 0).padStart(3, "0"),
-          label: "Followers",
-          target: live.followers ?? 0,
-          pad: 3,
-        },
+    {
+      value: `${linesK}k`,
+      label: "Lines",
+      target: linesK,
+      suffix: "k",
+    },
   ]
 }
 
 export function AboutSection({ data = aboutData }: AboutSectionProps) {
   const [stats, setStats] = useState<StatItem[]>(data.stats)
   const [live, setLive] = useState(false)
+  const [syncedAt, setSyncedAt] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
 
-    async function load() {
-      let baked: Partial<GitHubStats> | null = null
+    async function loadLive() {
       try {
-        const res = await fetch("/data/github-stats.json", { cache: "no-store" })
-        if (res.ok) baked = await res.json()
-      } catch {
-        /* optional bake */
-      }
-
-      try {
-        const lite = await fetchGitHubStatsLite()
+        const payload = await fetchGitHubStats({ enrichLanguages: false })
         if (cancelled) return
-        setStats(
-          buildStats({
-            ...baked,
-            ...lite,
-            // Keep authenticated LOC from bake when live lite has none
-            linesOfCode: lite.linesOfCode || baked?.linesOfCode,
-            linesOfCodeK: lite.linesOfCodeK || baked?.linesOfCodeK,
-            totalLanguageBytes: lite.totalLanguageBytes || baked?.totalLanguageBytes,
-          }),
-        )
+        setStats(buildStats(payload))
         setLive(true)
+        setSyncedAt(payload.fetchedAt)
       } catch {
         if (cancelled) return
-        if (baked) {
-          setStats(buildStats(baked))
-          setLive(true)
-        } else {
-          setStats(data.stats)
+        // Offline / rate-limit fallback only
+        try {
+          const res = await fetch(`/data/github-stats.json?t=${Date.now()}`, {
+            cache: "no-store",
+          })
+          if (res.ok) {
+            const baked = (await res.json()) as GitHubStats
+            setStats(buildStats(baked))
+            setLive(false)
+            setSyncedAt(baked.fetchedAt ?? null)
+            return
+          }
+        } catch {
+          /* ignore */
         }
+        setStats(data.stats)
+        setLive(false)
       }
     }
 
-    load()
+    loadLive()
+    const id = window.setInterval(loadLive, REFRESH_MS)
+    const onFocus = () => loadLive()
+    window.addEventListener("focus", onFocus)
+
     return () => {
       cancelled = true
+      window.clearInterval(id)
+      window.removeEventListener("focus", onFocus)
     }
   }, [data.stats])
 
@@ -110,7 +107,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
         <p style={{ color: "var(--accent-retro)", marginBottom: "10px" }}>
           {data.initMessage}
           <ProcessingDots /> ]
-          {live ? " · LIVE_GITHUB_KPI" : ""}
+          {live ? " · LIVE_GITHUB_KPI" : syncedAt ? " · CACHED_FALLBACK" : ""}
         </p>
         <h3 className="about-headline">
           {data.headlineParts.before}

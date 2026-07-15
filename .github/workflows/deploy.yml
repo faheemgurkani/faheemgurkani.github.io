@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # Keep baked fallback JSON fresh; the live site still fetches GitHub on every visit.
+  schedule:
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: read

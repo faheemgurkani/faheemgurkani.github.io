@@ -18,22 +18,7 @@ export function PortfolioSection({ data = portfolioData }: PortfolioSectionProps
   useEffect(() => {
     let cancelled = false
 
-    async function load() {
-      try {
-        const bakedRes = await fetch("/data/github-projects.json", { cache: "no-store" })
-        if (bakedRes.ok) {
-          const baked = (await bakedRes.json()) as PortfolioProject[]
-          if (!cancelled && Array.isArray(baked) && baked.length > 0) {
-            setProjects(baked)
-            setSource("live")
-            setLoading(false)
-            return
-          }
-        }
-      } catch {
-        /* fall through */
-      }
-
+    async function loadLive() {
       try {
         const payload = await fetchGitHubProjects({ enrich: false })
         if (cancelled) return
@@ -41,22 +26,41 @@ export function PortfolioSection({ data = portfolioData }: PortfolioSectionProps
           setProjects(payload)
           setSource("live")
         } else {
-          setProjects(curatedProjects)
-          setSource("curated")
+          throw new Error("empty")
         }
       } catch {
-        if (!cancelled) {
-          setProjects(curatedProjects)
-          setSource("curated")
+        if (cancelled) return
+        try {
+          const bakedRes = await fetch(`/data/github-projects.json?t=${Date.now()}`, {
+            cache: "no-store",
+          })
+          if (bakedRes.ok) {
+            const baked = (await bakedRes.json()) as PortfolioProject[]
+            if (Array.isArray(baked) && baked.length > 0) {
+              setProjects(baked)
+              setSource("curated")
+              return
+            }
+          }
+        } catch {
+          /* ignore */
         }
+        setProjects(curatedProjects)
+        setSource("curated")
       } finally {
         if (!cancelled) setLoading(false)
       }
     }
 
-    load()
+    loadLive()
+    const id = window.setInterval(loadLive, 5 * 60 * 1000)
+    const onFocus = () => loadLive()
+    window.addEventListener("focus", onFocus)
+
     return () => {
       cancelled = true
+      window.clearInterval(id)
+      window.removeEventListener("focus", onFocus)
     }
   }, [])
 

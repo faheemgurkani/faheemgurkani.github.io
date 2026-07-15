@@ -215,5 +215,6 @@ async function main() {
 
 main().catch((err) => {
   console.error("[fetch-github-data] Failed:", err)
-  process.exit(1)
+  // Do not fail the static build — live client fetch still works; keep last baked JSON if any.
+  process.exit(0)
 })

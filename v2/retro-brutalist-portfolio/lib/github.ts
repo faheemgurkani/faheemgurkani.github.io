@@ -21,6 +21,8 @@ export interface GitHubRepo {
   fork?: boolean
   topics?: string[]
   language: string | null
+  /** Repo size in kilobytes (GitHub API). */
+  size?: number
 }
 
 export interface PortfolioProject {
@@ -46,20 +48,23 @@ export interface GitHubStats {
   totalStars: number
   followers: number
   following: number
-  /** Estimated from language byte totals (~50 bytes/line). */
+  /** Estimated LOC (language bytes when enriched, else repo size). */
   linesOfCode: number
   linesOfCodeK: number
   totalLanguageBytes: number
   fetchedAt: string
+  live: boolean
 }
 
-function getToken(): string | undefined {
+/** Only available in Node/build — never expose to the browser. */
+function getServerToken(): string | undefined {
+  if (typeof window !== "undefined") return undefined
   if (typeof process === "undefined") return undefined
   return process.env.GITHUB_TOKEN || process.env.GH_TOKEN || undefined
 }
 
-function authHeaders(extraAccept?: string): HeadersInit {
-  const token = getToken()
+function apiHeaders(extraAccept?: string): HeadersInit {
+  const token = getServerToken()
   return {
     Accept:
       extraAccept ??
@@ -156,15 +161,24 @@ function estimateLines(bytes: number): number {
   return Math.max(0, Math.round(bytes / 50))
 }
 
+function linesFromRepoSizeKb(sizeKb?: number): number {
+  if (!sizeKb || sizeKb <= 0) return 0
+  return estimateLines(sizeKb * 1024)
+}
+
 async function githubFetch(url: string, extraAccept?: string): Promise<Response> {
-  const res = await fetch(url, { headers: authHeaders(extraAccept) })
-  if (res.status === 401 && getToken()) {
+  const res = await fetch(url, {
+    headers: apiHeaders(extraAccept),
+    cache: "no-store",
+  })
+  if (res.status === 401 && getServerToken()) {
     return fetch(url, {
       headers: {
         Accept:
           extraAccept ??
           "application/vnd.github.v3+json, application/vnd.github.mercy-preview+json",
       },
+      cache: "no-store",
     })
   }
   return res
@@ -202,15 +216,22 @@ function filterPortfolioRepos(repos: GitHubRepo[]): GitHubRepo[] {
   )
 }
 
-/** Full KPI payload — uses GITHUB_TOKEN when available (build / Node). */
+/**
+ * Live GitHub KPIs.
+ * Browser: public API (always fresh on each visit).
+ * Build/Node with token: optional language-byte LOC enrichment.
+ */
 export async function fetchGitHubStats(options?: {
-  includeLines?: boolean
+  /** Fetch /languages per repo (server/token only — expensive). */
+  enrichLanguages?: boolean
 }): Promise<GitHubStats> {
-  const includeLines = options?.includeLines ?? Boolean(getToken())
+  const enrichLanguages = Boolean(options?.enrichLanguages && getServerToken())
 
   const [userRes, reposRes] = await Promise.all([
     githubFetch(`${GITHUB_API}/users/${GITHUB_USERNAME}`, "application/vnd.github.v3+json"),
-    githubFetch(`${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner`),
+    githubFetch(
+      `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner&sort=updated`,
+    ),
   ])
 
   if (!userRes.ok) throw new Error(`GitHub user API error: ${userRes.status}`)
@@ -227,7 +248,7 @@ export async function fetchGitHubStats(options?: {
   const totalStars = repos.reduce((sum, r) => sum + (r.stargazers_count ?? 0), 0)
 
   let totalLanguageBytes = 0
-  if (includeLines) {
+  if (enrichLanguages) {
     const languageMaps = await Promise.all(
       filtered.map((r) => fetchRepoLanguages(r.name).catch(() => ({}))),
     )
@@ -235,6 +256,9 @@ export async function fetchGitHubStats(options?: {
       (sum, map) => sum + Object.values(map).reduce((a, b) => a + b, 0),
       0,
     )
+  } else {
+    // Live path: estimate from GitHub's repo size (KB) — no extra API calls.
+    totalLanguageBytes = filtered.reduce((sum, r) => sum + (r.size ?? 0) * 1024, 0)
   }
 
   const linesOfCode = estimateLines(totalLanguageBytes)
@@ -251,18 +275,24 @@ export async function fetchGitHubStats(options?: {
     linesOfCodeK,
     totalLanguageBytes,
     fetchedAt: new Date().toISOString(),
+    live: true,
   }
 }
 
-/** Lightweight client fetch (no language fan-out). */
+/** @deprecated use fetchGitHubStats — kept for callers */
 export async function fetchGitHubStatsLite(): Promise<GitHubStats> {
-  return fetchGitHubStats({ includeLines: false })
+  return fetchGitHubStats({ enrichLanguages: false })
 }
 
+/**
+ * Live GitHub projects.
+ * Browser always uses the public repos list (fresh every visit).
+ * Server with token can enrich languages + README titles at build time.
+ */
 export async function fetchGitHubProjects(options?: {
   enrich?: boolean
 }): Promise<PortfolioProject[]> {
-  const enrich = options?.enrich ?? Boolean(getToken())
+  const enrich = Boolean(options?.enrich && getServerToken())
 
   const res = await githubFetch(
     `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&type=owner`,
@@ -290,7 +320,9 @@ export async function fetchGitHubProjects(options?: {
   }
 
   return filtered.map((repo, i) => {
-    const bytes = Object.values(languagesPerRepo[i] ?? {}).reduce((a, b) => a + b, 0)
+    const langBytes = Object.values(languagesPerRepo[i] ?? {}).reduce((a, b) => a + b, 0)
+    const lines =
+      langBytes > 0 ? estimateLines(langBytes) : linesFromRepoSizeKb(repo.size) || undefined
     const title = readmeTitles[i]?.trim() || formatTitle(repo.name)
     return {
       code: `REPO_${String(i + 1).padStart(2, "0")}`,
@@ -305,7 +337,7 @@ export async function fetchGitHubProjects(options?: {
       forks: repo.forks_count > 0 ? repo.forks_count : undefined,
       lastUpdated: formatLastUpdated(repo.updated_at),
       updatedAtRaw: repo.updated_at,
-      linesOfCode: bytes > 0 ? estimateLines(bytes) : undefined,
+      linesOfCode: lines,
     }
   })
 }
