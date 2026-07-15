@@ -44,7 +44,7 @@ function buildStats(live?: Partial<GitHubStats> | null): StatItem[] {
     },
     {
       value: `${linesK}k`,
-      label: "Lines",
+      label: "Lines of Code",
       target: linesK,
       suffix: "k",
     },
@@ -53,8 +53,6 @@ function buildStats(live?: Partial<GitHubStats> | null): StatItem[] {
 
 export function AboutSection({ data = aboutData }: AboutSectionProps) {
   const [stats, setStats] = useState<StatItem[]>(data.stats)
-  const [live, setLive] = useState(false)
-  const [syncedAt, setSyncedAt] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -64,11 +62,8 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
         const payload = await fetchGitHubStats({ enrichLanguages: false })
         if (cancelled) return
         setStats(buildStats(payload))
-        setLive(true)
-        setSyncedAt(payload.fetchedAt)
       } catch {
         if (cancelled) return
-        // Offline / rate-limit fallback only
         try {
           const res = await fetch(`/data/github-stats.json?t=${Date.now()}`, {
             cache: "no-store",
@@ -76,15 +71,12 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
           if (res.ok) {
             const baked = (await res.json()) as GitHubStats
             setStats(buildStats(baked))
-            setLive(false)
-            setSyncedAt(baked.fetchedAt ?? null)
             return
           }
         } catch {
           /* ignore */
         }
         setStats(data.stats)
-        setLive(false)
       }
     }
 
@@ -107,7 +99,6 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
         <p style={{ color: "var(--accent-retro)", marginBottom: "10px" }}>
           {data.initMessage}
           <ProcessingDots /> ]
-          {live ? " · LIVE_GITHUB_KPI" : syncedAt ? " · CACHED_FALLBACK" : ""}
         </p>
         <h3 className="about-headline">
           {data.headlineParts.before}

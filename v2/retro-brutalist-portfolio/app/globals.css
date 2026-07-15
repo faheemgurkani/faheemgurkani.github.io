@@ -894,7 +894,7 @@ a.sidebar-info-value:hover {
 }
 
 .hero-image.sidebar-image {
-  height: 242px;
+  height: 220px;
 }
 
 .hero-image {
@@ -1209,7 +1209,7 @@ footer {
 
   .sidebar-image,
   .hero-image.sidebar-image {
-    height: 220px;
+    height: 200px;
   }
 
   .sidebar-info-grid {

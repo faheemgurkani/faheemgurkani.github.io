@@ -66,7 +66,7 @@ export const aboutData = {
     { value: "03+", label: "Years XP", target: 3, suffix: "+", pad: 2 },
     { value: "047", label: "Projects", target: 47, pad: 3 },
     { value: "062", label: "Stars", target: 62, pad: 3 },
-    { value: "256k", label: "Lines", target: 256, suffix: "k" },
+    { value: "256k", label: "Lines of Code", target: 256, suffix: "k" },
   ],
   services: [
     {
