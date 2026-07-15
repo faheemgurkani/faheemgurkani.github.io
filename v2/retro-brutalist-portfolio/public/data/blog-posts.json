@@ -1,0 +1,148 @@
+{
+  "fetchedAt": "2026-07-15T21:03:51.591Z",
+  "posts": [
+    {
+      "code": "LOG_001",
+      "title": "LocateAnything on Real Traffic: A Zero-Shot Evaluation on D²-City Dashcam Video",
+      "category": "Substack",
+      "date": "Jun 23, 2026",
+      "readTime": "20 min",
+      "excerpt": "Modern object detection does not primarily fail because models lack visual understanding; it fails because generalist models are never asked the right question in the right domain.…",
+      "tags": [
+        "substack"
+      ],
+      "href": "https://therepresentationmanifold.substack.com/p/can-a-generalist-vision-language",
+      "source": "Substack",
+      "publishedAt": "2026-06-23T13:23:50.000Z"
+    },
+    {
+      "code": "LOG_002",
+      "title": "The Epistemic Gap: Why Foundational Models Hallucinate and the Path to Calibrated Honesty",
+      "category": "Substack",
+      "date": "Feb 01, 2026",
+      "readTime": "12 min",
+      "excerpt": "Modern foundational models do not primarily fail because they lack intelligence; they fail because they lack epistemic self-awareness . Today’s large language models are trained to…",
+      "tags": [
+        "substack"
+      ],
+      "href": "https://therepresentationmanifold.substack.com/p/the-epistemic-gap-why-foundational",
+      "source": "Substack",
+      "publishedAt": "2026-02-01T17:31:34.000Z"
+    },
+    {
+      "code": "LOG_003",
+      "title": "The Evolution of Vision Architectures: From CNNs to Vision Transformers and Swin Transformers",
+      "category": "swin transformer",
+      "date": "Dec 22, 2025",
+      "readTime": "8 min",
+      "excerpt": "From Inductive Bias to Scalable Self-Attention in Modern Computer Vision For nearly a decade, Convolutional Neural Networks (CNNs) stood as the foundational architecture of modern …",
+      "tags": [
+        "swin-transformer",
+        "scalability",
+        "inductive-bias",
+        "cnn"
+      ],
+      "href": "https://medium.com/@faheemgurkani/the-evolution-of-vision-architectures-from-cnns-to-vision-transformers-and-swin-transformers-86e851952eae",
+      "source": "Medium",
+      "publishedAt": "2025-12-22T15:16:04.000Z"
+    },
+    {
+      "code": "LOG_004",
+      "title": "RT-DETR: How DETRs Finally Beat YOLOs in Real-time Object Detection",
+      "category": "transformers",
+      "date": "Nov 02, 2025",
+      "readTime": "6 min",
+      "excerpt": "How Baidu and Peking University’s RT-DETR redefines real-time object detection, outperforming YOLOs without relying on NMS For almost a decade, YOLO (You Only Look Once) models hav…",
+      "tags": [
+        "transformers",
+        "object-detection",
+        "deep-learning"
+      ],
+      "href": "https://medium.com/@faheemgurkani/rt-detr-how-detrs-finally-beat-yolos-in-real-time-object-detection-a817aaf69a74",
+      "source": "Medium",
+      "publishedAt": "2025-11-02T18:52:42.000Z"
+    },
+    {
+      "code": "LOG_005",
+      "title": "Self-Supervision: Overcoming the Bottlenecks of Supervised Learning",
+      "category": "language modeling",
+      "date": "Aug 15, 2025",
+      "readTime": "4 min",
+      "excerpt": "How Self-Supervised Learning has Powered Large Language Models and Beyond Supervised learning has been the workhorse of AI for decades. From image classification to fraud detection…",
+      "tags": [
+        "language-modeling",
+        "llm-applications",
+        "llm",
+        "self-supervised-learning"
+      ],
+      "href": "https://medium.com/@faheemgurkani/self-supervision-overcoming-the-bottlenecks-of-supervised-learning-d6ab3c1a00b9",
+      "source": "Medium",
+      "publishedAt": "2025-08-15T14:27:03.000Z"
+    },
+    {
+      "code": "LOG_006",
+      "title": "Exploring Class Activation Maps (CAM): Unveiling the Decision-Making Process of CNNs",
+      "category": "Medium",
+      "date": "Jan 22, 2025",
+      "readTime": "8 min",
+      "excerpt": "A Comprehensive Guide to Class Activation Maps and Grad-CAM for Interpretable Deep Learning by making CNNs Transparent The rise of Convolutional Neural Networks (CNNs) have been pi…",
+      "tags": [
+        "medium"
+      ],
+      "href": "https://medium.com/@faheemgurkani/exploring-class-activation-maps-cam-unveiling-the-decision-making-process-of-cnns-fb9de759880e",
+      "source": "Medium",
+      "publishedAt": "2025-01-21T19:38:59.000Z"
+    },
+    {
+      "code": "LOG_007",
+      "title": "The Dawn of Transfer Learning in NLP: Breaking Barriers with ULMFiT",
+      "category": "ulmfit",
+      "date": "Jan 04, 2025",
+      "readTime": "9 min",
+      "excerpt": "How Universal Language Model Fine-Tuning Revolutionized Natural Language Processing Overview The field of Natural Language Processing (NLP) has advanced rapidly in recent years, wi…",
+      "tags": [
+        "ulmfit",
+        "llm",
+        "lstm",
+        "transformers"
+      ],
+      "href": "https://medium.com/@faheemgurkani/the-dawn-of-transfer-learning-in-nlp-breaking-barriers-with-ulmfit-7044c7ddaf4e",
+      "source": "Medium",
+      "publishedAt": "2025-01-04T09:11:09.000Z"
+    },
+    {
+      "code": "LOG_008",
+      "title": "Exploring Compute-Optimal Strategies for LLM Training: Key Insights from Foundational Papers",
+      "category": "generative ai tools",
+      "date": "Nov 22, 2024",
+      "readTime": "9 min",
+      "excerpt": "Optimizing Model Performance Through Scaling Laws, Efficient Pretraining, and Real-World Applications Overview The rapid advancements in large language models (LLMs) have ushered i…",
+      "tags": [
+        "generative-ai-tools",
+        "openai",
+        "tranformers",
+        "llm"
+      ],
+      "href": "https://medium.com/@faheemgurkani/exploring-compute-optimal-strategies-for-llm-training-key-insights-from-foundational-papers-2ef2af1e3444",
+      "source": "Medium",
+      "publishedAt": "2024-11-22T07:19:56.000Z"
+    },
+    {
+      "code": "LOG_009",
+      "title": "Generative Configurations of Transformer-Based Language Models",
+      "category": "transformers",
+      "date": "Nov 21, 2024",
+      "readTime": "5 min",
+      "excerpt": "Understanding the Inference Configuration Parameters for Optimizing Transformer-Based Language Models. Introduction When working with large language models (LLMs) such as those fou…",
+      "tags": [
+        "transformers",
+        "generative-ai-use-cases",
+        "generative-ai-tools",
+        "llm"
+      ],
+      "href": "https://medium.com/@faheemgurkani/generative-configurations-of-transformer-based-language-models-ee275e5bafd8",
+      "source": "Medium",
+      "publishedAt": "2024-11-21T05:39:09.000Z"
+    }
+  ]
+}

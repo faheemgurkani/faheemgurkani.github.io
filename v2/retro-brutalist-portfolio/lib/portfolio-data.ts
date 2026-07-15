@@ -10,7 +10,7 @@ export const profileData = {
     github: "https://github.com/faheemgurkani",
     linkedin: "https://www.linkedin.com/in/muhammad-faheem-367a1b279/",
     medium: "https://medium.com/@faheemgurkani",
-    substack: "https://substack.com/@faheemgurkani",
+    substack: "https://therepresentationmanifold.substack.com",
     kaggle: "https://www.kaggle.com/faheemgurkani",
   },
 }

@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node scripts/fetch-github-data.mjs",
+    "prebuild": "node scripts/fetch-github-data.mjs && node scripts/fetch-blog-data.mjs",
     "fetch-github": "node scripts/fetch-github-data.mjs",
+    "fetch-blog": "node scripts/fetch-blog-data.mjs",
+    "fetch-feeds": "node scripts/fetch-github-data.mjs && node scripts/fetch-blog-data.mjs",
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
