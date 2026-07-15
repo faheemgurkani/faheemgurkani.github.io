@@ -17,8 +17,25 @@ export function PortfolioSection({ data = portfolioData }: PortfolioSectionProps
 
   useEffect(() => {
     let cancelled = false
-    fetchGitHubProjects()
-      .then((payload) => {
+
+    async function load() {
+      try {
+        const bakedRes = await fetch("/data/github-projects.json", { cache: "no-store" })
+        if (bakedRes.ok) {
+          const baked = (await bakedRes.json()) as PortfolioProject[]
+          if (!cancelled && Array.isArray(baked) && baked.length > 0) {
+            setProjects(baked)
+            setSource("live")
+            setLoading(false)
+            return
+          }
+        }
+      } catch {
+        /* fall through */
+      }
+
+      try {
+        const payload = await fetchGitHubProjects({ enrich: false })
         if (cancelled) return
         if (Array.isArray(payload) && payload.length > 0) {
           setProjects(payload)
@@ -27,16 +44,17 @@ export function PortfolioSection({ data = portfolioData }: PortfolioSectionProps
           setProjects(curatedProjects)
           setSource("curated")
         }
-      })
-      .catch(() => {
+      } catch {
         if (!cancelled) {
           setProjects(curatedProjects)
           setSource("curated")
         }
-      })
-      .finally(() => {
+      } finally {
         if (!cancelled) setLoading(false)
-      })
+      }
+    }
+
+    load()
     return () => {
       cancelled = true
     }
@@ -99,7 +117,7 @@ export function PortfolioSection({ data = portfolioData }: PortfolioSectionProps
                 <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>
                   {project.description}
                 </p>
-                {(project.stars != null || project.lastUpdated) && (
+                {(project.stars != null || project.lastUpdated || project.linesOfCode != null) && (
                   <p
                     style={{
                       fontSize: "0.7rem",
@@ -108,8 +126,12 @@ export function PortfolioSection({ data = portfolioData }: PortfolioSectionProps
                     }}
                   >
                     {project.stars != null ? `★ ${project.stars}` : ""}
-                    {project.stars != null && project.lastUpdated ? " · " : ""}
-                    {project.lastUpdated ?? ""}
+                    {project.linesOfCode != null
+                      ? `${project.stars != null ? " · " : ""}~${project.linesOfCode.toLocaleString()} LOC`
+                      : ""}
+                    {project.lastUpdated
+                      ? `${project.stars != null || project.linesOfCode != null ? " · " : ""}${project.lastUpdated}`
+                      : ""}
                   </p>
                 )}
               </div>

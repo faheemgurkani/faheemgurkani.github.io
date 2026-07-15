@@ -64,9 +64,9 @@ export const aboutData = {
     "I am a dedicated AI and Machine Learning Engineer with a strong foundation in Computer Science and Artificial Intelligence. Currently pursuing my Bachelor's at the National University of Computer and Emerging Sciences (Islamabad Campus), I specialize in LLMs, Computer Vision, Agentic Workflows (RAG, MCP), and production-grade backend systems.",
   stats: [
     { value: "03+", label: "Years XP", target: 3, suffix: "+", pad: 2 },
-    { value: "056", label: "Repos", target: 56, pad: 3 },
+    { value: "047", label: "Projects", target: 47, pad: 3 },
     { value: "062", label: "Stars", target: 62, pad: 3 },
-    { value: "008", label: "Followers", target: 8, pad: 3 },
+    { value: "256k", label: "Lines", target: 256, suffix: "k" },
   ],
   services: [
     {

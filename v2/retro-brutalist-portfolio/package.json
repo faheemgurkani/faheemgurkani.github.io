@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/fetch-github-data.mjs",
+    "fetch-github": "node scripts/fetch-github-data.mjs",
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",

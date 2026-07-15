@@ -36,6 +36,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm build
+        env:
+          GITHUB_TOKEN: ${{ secrets.PORTFOLIO_GITHUB_TOKEN || github.token }}
 
       - name: Add .nojekyll for GitHub Pages
         run: touch out/.nojekyll
