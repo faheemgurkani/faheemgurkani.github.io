@@ -100,6 +100,120 @@ function FilterDropdown<T extends string>({
   )
 }
 
+function ProjectCard({ project }: { project: PortfolioProject }) {
+  const [stackOpen, setStackOpen] = useState(false)
+  const techs = technologiesOf(project)
+  const githubHref = project.repoUrl
+  const demoHref = project.homepage || undefined
+  const hasStats =
+    project.stars != null ||
+    (project.forks != null && project.forks > 0) ||
+    Boolean(project.lastUpdated) ||
+    project.linesOfCode != null
+
+  return (
+    <article
+      className={`project-card project-card-text ${project.isPrivate ? "project-card-private" : ""}`}
+    >
+      <div className="window-header" style={{ background: "#333", color: "#fff" }}>
+        <span>{project.isPrivate ? "PRIVATE_WIP" : project.code}</span>
+        <WindowControls dark />
+      </div>
+
+      <div className="project-info project-info-full">
+        <div className="project-card-top">
+          <span className="project-tag">
+            {project.isPrivate ? "#PRIVATE #WIP" : project.tags || "#GITHUB"}
+          </span>
+          <div className="project-card-links">
+            {!project.isPrivate && demoHref && (
+              <a
+                href={demoHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-mini-link"
+              >
+                DEMO ↗
+              </a>
+            )}
+            {!project.isPrivate && githubHref && (
+              <a
+                href={githubHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-mini-link"
+              >
+                GITHUB ↗
+              </a>
+            )}
+            {project.isPrivate && (
+              <span
+                className="project-mini-link project-mini-link-muted"
+                title="Repository is private — development still in progress."
+              >
+                LOCKED
+              </span>
+            )}
+          </div>
+        </div>
+
+        <h3 className="project-title">{project.title}</h3>
+
+        <p className="project-desc">
+          {project.isPrivate
+            ? project.description ||
+              "This project is currently under development. The repository is private and not yet publicly available on GitHub."
+            : "Note: To understand the detailed description for this project, visit the project on GitHub (click GITHUB on this card)."}
+        </p>
+
+        {project.isPrivate && (
+          <span className="project-wip-badge">● UNDER_DEVELOPMENT</span>
+        )}
+
+        {hasStats && !project.isPrivate && (
+          <div className="project-kpis">
+            {project.stars != null && (
+              <span className="project-kpi">★ STARS {project.stars}</span>
+            )}
+            {project.forks != null && project.forks > 0 && (
+              <span className="project-kpi">⑂ FORKS {project.forks}</span>
+            )}
+            {project.linesOfCode != null && (
+              <span className="project-kpi">
+                ~{project.linesOfCode.toLocaleString()} LOC
+              </span>
+            )}
+            {project.lastUpdated && (
+              <span className="project-kpi">UPDATED {project.lastUpdated}</span>
+            )}
+          </div>
+        )}
+
+        {techs.length > 0 && (
+          <div className="project-stack">
+            <button
+              type="button"
+              className="project-stack-toggle"
+              onClick={() => setStackOpen((o) => !o)}
+            >
+              {stackOpen ? "HIDE_STACK ▲" : "SHOW_STACK ▼"}
+            </button>
+            {stackOpen && (
+              <div className="project-stack-tags">
+                {techs.map((tech) => (
+                  <span key={tech} className="project-stack-tag">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </article>
+  )
+}
+
 export function PortfolioSection() {
   const [projects, setProjects] = useState<PortfolioProject[]>(curatedProjects)
   const [loading, setLoading] = useState(true)
@@ -328,92 +442,12 @@ export function PortfolioSection() {
         </p>
       ) : (
         <div className="portfolio-grid portfolio-grid-compact">
-          {visibleProjects.map((project, index) => {
-            const href = project.isPrivate
-              ? undefined
-              : project.homepage || project.repoUrl
-            const CardInner = (
-              <>
-                <div className="window-header" style={{ background: "#333", color: "#fff" }}>
-                  <span>{project.isPrivate ? "PRIVATE_WIP" : project.code}</span>
-                  <WindowControls dark />
-                </div>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-img"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.currentTarget
-                    if (target.src.includes("placeholder")) return
-                    target.src = "/placeholder.svg"
-                  }}
-                />
-                <div className="project-info">
-                  <span className="project-tag">{project.tags}</span>
-                  <h3 className="project-title">{project.title}</h3>
-                  <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>
-                    {project.isPrivate
-                      ? project.description ||
-                        "Under development — repository is private."
-                      : project.description}
-                  </p>
-                  {project.isPrivate && (
-                    <p
-                      style={{
-                        fontSize: "0.7rem",
-                        color: "var(--accent-retro)",
-                        marginTop: "8px",
-                      }}
-                    >
-                      ● UNDER_DEVELOPMENT
-                    </p>
-                  )}
-                  {!project.isPrivate &&
-                    (project.stars != null ||
-                      project.lastUpdated ||
-                      project.linesOfCode != null) && (
-                      <p
-                        style={{
-                          fontSize: "0.7rem",
-                          color: "var(--accent-retro)",
-                          marginTop: "8px",
-                        }}
-                      >
-                        {project.stars != null ? `★ ${project.stars}` : ""}
-                        {project.linesOfCode != null
-                          ? `${project.stars != null ? " · " : ""}~${project.linesOfCode.toLocaleString()} LOC`
-                          : ""}
-                        {project.lastUpdated
-                          ? `${project.stars != null || project.linesOfCode != null ? " · " : ""}${project.lastUpdated}`
-                          : ""}
-                      </p>
-                    )}
-                </div>
-              </>
-            )
-
-            return href ? (
-              <a
-                key={`${project.code}-${project.title}-${index}`}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-card"
-                style={{ textDecoration: "none", color: "inherit", display: "block" }}
-              >
-                {CardInner}
-              </a>
-            ) : (
-              <div
-                key={`${project.code}-${project.title}-${index}`}
-                className="project-card"
-                style={project.isPrivate ? { opacity: 0.85 } : undefined}
-              >
-                {CardInner}
-              </div>
-            )
-          })}
+          {visibleProjects.map((project, index) => (
+            <ProjectCard
+              key={`${project.code}-${project.title}-${index}`}
+              project={project}
+            />
+          ))}
         </div>
       )}
 
