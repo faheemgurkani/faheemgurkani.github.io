@@ -186,6 +186,21 @@ async function main() {
 
   const projects = filtered.map((repo, i) => {
     const bytes = Object.values(languagesPerRepo[i] || {}).reduce((a, b) => a + b, 0)
+    const technologies = []
+    if (repo.language) technologies.push(repo.language)
+    for (const t of repo.topics || []) {
+      if (!technologies.includes(t)) technologies.push(t)
+    }
+    const langMap = languagesPerRepo[i] || {}
+    if (Object.keys(langMap).length) {
+      const total = Object.values(langMap).reduce((a, b) => a + b, 0)
+      Object.entries(langMap)
+        .map(([lang, n]) => ({ lang, pct: total ? (n / total) * 100 : 0 }))
+        .sort((a, b) => b.pct - a.pct)
+        .forEach(({ lang }) => {
+          if (!technologies.includes(lang)) technologies.push(lang)
+        })
+    }
     return {
       code: `REPO_${String(i + 1).padStart(2, "0")}`,
       title: (readmeTitles[i] || "").trim() || formatTitle(repo.name),
@@ -200,6 +215,7 @@ async function main() {
       lastUpdated: formatLastUpdated(repo.updated_at),
       updatedAtRaw: repo.updated_at,
       linesOfCode: bytes > 0 ? estimateLines(bytes) : undefined,
+      technologies,
     }
   })
 

@@ -10,7 +10,11 @@
     "stars": 1,
     "lastUpdated": "1 weeks ago",
     "updatedAtRaw": "2026-07-07T14:15:02Z",
-    "linesOfCode": 4453
+    "linesOfCode": 4453,
+    "technologies": [
+      "Python",
+      "Shell"
+    ]
   },
   {
     "code": "REPO_02",
@@ -23,7 +27,11 @@
     "stars": 2,
     "lastUpdated": "2 weeks ago",
     "updatedAtRaw": "2026-06-26T18:38:29Z",
-    "linesOfCode": 1881
+    "linesOfCode": 1881,
+    "technologies": [
+      "Python",
+      "Shell"
+    ]
   },
   {
     "code": "REPO_03",
@@ -36,7 +44,12 @@
     "stars": 1,
     "lastUpdated": "4 weeks ago",
     "updatedAtRaw": "2026-06-17T18:41:14Z",
-    "linesOfCode": 1674
+    "linesOfCode": 1674,
+    "technologies": [
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ]
   },
   {
     "code": "REPO_04",
@@ -49,7 +62,11 @@
     "stars": 2,
     "lastUpdated": "2 months ago",
     "updatedAtRaw": "2026-05-12T09:57:17Z",
-    "linesOfCode": 2950
+    "linesOfCode": 2950,
+    "technologies": [
+      "Python",
+      "Shell"
+    ]
   },
   {
     "code": "REPO_05",
@@ -62,7 +79,12 @@
     "stars": 0,
     "lastUpdated": "2 months ago",
     "updatedAtRaw": "2026-04-18T07:29:52Z",
-    "linesOfCode": 3294
+    "linesOfCode": 3294,
+    "technologies": [
+      "Jupyter Notebook",
+      "Python",
+      "Makefile"
+    ]
   },
   {
     "code": "REPO_06",
@@ -75,7 +97,15 @@
     "stars": 1,
     "lastUpdated": "5 months ago",
     "updatedAtRaw": "2026-02-15T15:16:48Z",
-    "linesOfCode": 9854
+    "linesOfCode": 9854,
+    "technologies": [
+      "Python",
+      "Jupyter Notebook",
+      "TypeScript",
+      "CSS",
+      "Mako",
+      "JavaScript"
+    ]
   },
   {
     "code": "REPO_07",
@@ -88,7 +118,15 @@
     "stars": 1,
     "lastUpdated": "7 months ago",
     "updatedAtRaw": "2025-12-08T10:05:05Z",
-    "linesOfCode": 20369
+    "linesOfCode": 20369,
+    "technologies": [
+      "Python",
+      "C++",
+      "Shell",
+      "C",
+      "Lua",
+      "CMake"
+    ]
   },
   {
     "code": "REPO_08",
@@ -101,7 +139,14 @@
     "stars": 1,
     "lastUpdated": "7 months ago",
     "updatedAtRaw": "2025-12-05T21:13:31Z",
-    "linesOfCode": 9288
+    "linesOfCode": 9288,
+    "technologies": [
+      "Python",
+      "TypeScript",
+      "CSS",
+      "Shell",
+      "JavaScript"
+    ]
   },
   {
     "code": "REPO_09",
@@ -114,7 +159,13 @@
     "stars": 1,
     "lastUpdated": "8 months ago",
     "updatedAtRaw": "2025-11-17T12:10:35Z",
-    "linesOfCode": 5538
+    "linesOfCode": 5538,
+    "technologies": [
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "CSS"
+    ]
   },
   {
     "code": "REPO_10",
@@ -127,7 +178,13 @@
     "stars": 1,
     "lastUpdated": "8 months ago",
     "updatedAtRaw": "2025-11-11T14:22:43Z",
-    "linesOfCode": 2073
+    "linesOfCode": 2073,
+    "technologies": [
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "CSS"
+    ]
   },
   {
     "code": "REPO_11",
@@ -140,7 +197,11 @@
     "stars": 1,
     "lastUpdated": "8 months ago",
     "updatedAtRaw": "2025-11-09T23:10:38Z",
-    "linesOfCode": 928
+    "linesOfCode": 928,
+    "technologies": [
+      "Python",
+      "Shell"
+    ]
   },
   {
     "code": "REPO_12",
@@ -153,7 +214,11 @@
     "stars": 1,
     "lastUpdated": "9 months ago",
     "updatedAtRaw": "2025-10-14T16:05:25Z",
-    "linesOfCode": 1149
+    "linesOfCode": 1149,
+    "technologies": [
+      "Python",
+      "Shell"
+    ]
   },
   {
     "code": "REPO_13",
@@ -166,7 +231,10 @@
     "stars": 1,
     "lastUpdated": "9 months ago",
     "updatedAtRaw": "2025-10-12T09:33:07Z",
-    "linesOfCode": 1411
+    "linesOfCode": 1411,
+    "technologies": [
+      "Python"
+    ]
   },
   {
     "code": "REPO_14",
@@ -180,7 +248,12 @@
     "forks": 5,
     "lastUpdated": "10 months ago",
     "updatedAtRaw": "2025-08-22T07:24:07Z",
-    "linesOfCode": 4730
+    "linesOfCode": 4730,
+    "technologies": [
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ]
   },
   {
     "code": "REPO_15",
@@ -193,7 +266,10 @@
     "stars": 1,
     "lastUpdated": "11 months ago",
     "updatedAtRaw": "2025-08-06T22:50:12Z",
-    "linesOfCode": 2611
+    "linesOfCode": 2611,
+    "technologies": [
+      "Python"
+    ]
   },
   {
     "code": "REPO_16",
@@ -206,7 +282,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-07-10T03:57:20Z",
-    "linesOfCode": 137
+    "linesOfCode": 137,
+    "technologies": [
+      "Python"
+    ]
   },
   {
     "code": "REPO_17",
@@ -219,7 +298,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-07-02T23:35:24Z",
-    "linesOfCode": 353
+    "linesOfCode": 353,
+    "technologies": [
+      "Python"
+    ]
   },
   {
     "code": "REPO_18",
@@ -232,7 +314,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-07-01T16:01:53Z",
-    "linesOfCode": 891
+    "linesOfCode": 891,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_19",
@@ -245,7 +330,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-07-01T15:51:19Z",
-    "linesOfCode": 167
+    "linesOfCode": 167,
+    "technologies": [
+      "Python"
+    ]
   },
   {
     "code": "REPO_20",
@@ -258,7 +346,11 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-06-27T20:08:37Z",
-    "linesOfCode": 1429
+    "linesOfCode": 1429,
+    "technologies": [
+      "Python",
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_21",
@@ -271,7 +363,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-06-25T22:06:45Z",
-    "linesOfCode": 1419
+    "linesOfCode": 1419,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_22",
@@ -284,7 +379,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-06-24T22:50:37Z",
-    "linesOfCode": 1449
+    "linesOfCode": 1449,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_23",
@@ -297,7 +395,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-06-24T22:50:36Z",
-    "linesOfCode": 188
+    "linesOfCode": 188,
+    "technologies": [
+      "Python"
+    ]
   },
   {
     "code": "REPO_24",
@@ -310,7 +411,11 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-06-24T22:23:50Z",
-    "linesOfCode": 2618
+    "linesOfCode": 2618,
+    "technologies": [
+      "Jupyter Notebook",
+      "Python"
+    ]
   },
   {
     "code": "REPO_25",
@@ -323,7 +428,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-06-22T19:49:59Z",
-    "linesOfCode": 1339
+    "linesOfCode": 1339,
+    "technologies": [
+      "Python"
+    ]
   },
   {
     "code": "REPO_26",
@@ -336,7 +444,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-06-12T16:32:16Z",
-    "linesOfCode": 3156
+    "linesOfCode": 3156,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_27",
@@ -349,7 +460,12 @@
     "stars": 3,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-05-05T19:00:48Z",
-    "linesOfCode": 2556
+    "linesOfCode": 2556,
+    "technologies": [
+      "Python",
+      "Shell",
+      "Dockerfile"
+    ]
   },
   {
     "code": "REPO_28",
@@ -362,7 +478,12 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-04-03T11:07:55Z",
-    "linesOfCode": 1108
+    "linesOfCode": 1108,
+    "technologies": [
+      "Python",
+      "CSS",
+      "HTML"
+    ]
   },
   {
     "code": "REPO_29",
@@ -375,7 +496,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-27T14:11:27Z",
-    "linesOfCode": 726
+    "linesOfCode": 726,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_30",
@@ -388,7 +512,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-27T14:08:14Z",
-    "linesOfCode": 941
+    "linesOfCode": 941,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_31",
@@ -402,7 +529,11 @@
     "forks": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-21T19:54:42Z",
-    "linesOfCode": 5302
+    "linesOfCode": 5302,
+    "technologies": [
+      "Python",
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_32",
@@ -415,7 +546,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-19T18:23:37Z",
-    "linesOfCode": 414
+    "linesOfCode": 414,
+    "technologies": [
+      "C++"
+    ]
   },
   {
     "code": "REPO_33",
@@ -428,7 +562,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-18T18:25:13Z",
-    "linesOfCode": 6650
+    "linesOfCode": 6650,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_34",
@@ -441,7 +578,11 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-18T06:41:02Z",
-    "linesOfCode": 426
+    "linesOfCode": 426,
+    "technologies": [
+      "Jupyter Notebook",
+      "Python"
+    ]
   },
   {
     "code": "REPO_35",
@@ -454,7 +595,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-10T01:12:26Z",
-    "linesOfCode": 252
+    "linesOfCode": 252,
+    "technologies": [
+      "Python"
+    ]
   },
   {
     "code": "REPO_36",
@@ -467,7 +611,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-01T20:03:24Z",
-    "linesOfCode": 2654
+    "linesOfCode": 2654,
+    "technologies": [
+      "Assembly"
+    ]
   },
   {
     "code": "REPO_37",
@@ -480,7 +627,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-01T19:08:17Z",
-    "linesOfCode": 12210
+    "linesOfCode": 12210,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_38",
@@ -493,7 +643,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-03-01T19:05:13Z",
-    "linesOfCode": 42672
+    "linesOfCode": 42672,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_39",
@@ -506,7 +659,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-02-26T12:54:31Z",
-    "linesOfCode": 16642
+    "linesOfCode": 16642,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_40",
@@ -519,7 +675,11 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-02-16T12:39:32Z",
-    "linesOfCode": 27847
+    "linesOfCode": 27847,
+    "technologies": [
+      "Jupyter Notebook",
+      "Python"
+    ]
   },
   {
     "code": "REPO_41",
@@ -532,7 +692,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-02-16T12:10:14Z",
-    "linesOfCode": 588
+    "linesOfCode": 588,
+    "technologies": [
+      "C++"
+    ]
   },
   {
     "code": "REPO_42",
@@ -545,7 +708,11 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-02-04T00:23:54Z",
-    "linesOfCode": 46833
+    "linesOfCode": 46833,
+    "technologies": [
+      "Jupyter Notebook",
+      "Python"
+    ]
   },
   {
     "code": "REPO_43",
@@ -558,7 +725,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2025-02-03T04:37:15Z",
-    "linesOfCode": 185
+    "linesOfCode": 185,
+    "technologies": [
+      "C++"
+    ]
   },
   {
     "code": "REPO_44",
@@ -571,7 +741,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2024-11-20T06:57:40Z",
-    "linesOfCode": 203
+    "linesOfCode": 203,
+    "technologies": [
+      "C++"
+    ]
   },
   {
     "code": "REPO_45",
@@ -584,7 +757,11 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2024-10-29T05:10:42Z",
-    "linesOfCode": 855
+    "linesOfCode": 855,
+    "technologies": [
+      "Jupyter Notebook",
+      "Python"
+    ]
   },
   {
     "code": "REPO_46",
@@ -597,7 +774,10 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2024-10-29T05:10:31Z",
-    "linesOfCode": 1197
+    "linesOfCode": 1197,
+    "technologies": [
+      "Jupyter Notebook"
+    ]
   },
   {
     "code": "REPO_47",
@@ -610,6 +790,9 @@
     "stars": 1,
     "lastUpdated": "1 years ago",
     "updatedAtRaw": "2024-10-29T04:44:43Z",
-    "linesOfCode": 623
+    "linesOfCode": 623,
+    "technologies": [
+      "Python"
+    ]
   }
 ]

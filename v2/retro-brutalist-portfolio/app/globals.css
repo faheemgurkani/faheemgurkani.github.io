@@ -576,6 +576,83 @@ a.sidebar-info-value:hover {
   border-color: var(--text-primary);
 }
 
+.retro-filter-bar {
+  align-items: center;
+  gap: 10px;
+}
+
+.retro-filters-heading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-retro);
+  margin-right: 4px;
+}
+
+.retro-filter-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.retro-filter-label {
+  color: var(--accent-retro);
+  margin-right: 4px;
+}
+
+.retro-filter-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 40;
+  min-width: 180px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface);
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0 var(--accent-retro);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.retro-filter-option {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+  color: var(--text-secondary);
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+}
+
+.retro-filter-option:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-retro);
+}
+
+.retro-filter-option-active {
+  color: var(--bg-color);
+  background: var(--accent-retro);
+  border-color: var(--text-primary);
+}
+
+.retro-resume-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.filter-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
 .blog-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -894,7 +971,7 @@ a.sidebar-info-value:hover {
 }
 
 .hero-image.sidebar-image {
-  height: 220px;
+  height: 200px;
 }
 
 .hero-image {
@@ -1209,7 +1286,7 @@ footer {
 
   .sidebar-image,
   .hero-image.sidebar-image {
-    height: 200px;
+    height: 180px;
   }
 
   .sidebar-info-grid {

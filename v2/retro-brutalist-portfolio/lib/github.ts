@@ -39,6 +39,9 @@ export interface PortfolioProject {
   lastUpdated?: string
   updatedAtRaw?: string
   linesOfCode?: number
+  /** Tech tags for stack filtering (language names / topics). */
+  technologies?: string[]
+  isPrivate?: boolean
 }
 
 export interface GitHubStats {
@@ -324,6 +327,22 @@ export async function fetchGitHubProjects(options?: {
     const lines =
       langBytes > 0 ? estimateLines(langBytes) : linesFromRepoSizeKb(repo.size) || undefined
     const title = readmeTitles[i]?.trim() || formatTitle(repo.name)
+    const technologies: string[] = []
+    if (repo.language) technologies.push(repo.language)
+    for (const t of repo.topics ?? []) {
+      if (!technologies.includes(t)) technologies.push(t)
+    }
+    // Prefer language % tags when enriched
+    if (languagesPerRepo[i] && Object.keys(languagesPerRepo[i]).length > 0) {
+      const total = Object.values(languagesPerRepo[i]).reduce((a, b) => a + b, 0)
+      const fromLangs = Object.entries(languagesPerRepo[i])
+        .map(([lang, n]) => ({ lang, pct: total ? (n / total) * 100 : 0 }))
+        .sort((a, b) => b.pct - a.pct)
+        .map(({ lang }) => lang)
+      for (const lang of fromLangs) {
+        if (!technologies.includes(lang)) technologies.push(lang)
+      }
+    }
     return {
       code: `REPO_${String(i + 1).padStart(2, "0")}`,
       title,
@@ -338,6 +357,7 @@ export async function fetchGitHubProjects(options?: {
       lastUpdated: formatLastUpdated(repo.updated_at),
       updatedAtRaw: repo.updated_at,
       linesOfCode: lines,
+      technologies,
     }
   })
 }

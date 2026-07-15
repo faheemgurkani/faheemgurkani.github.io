@@ -1,0 +1,44 @@
+{
+  "AI/ML Engineer": [
+    {
+      "title": "BastionFed: Federated Learning & SOC Platform (Healthcare / IoMT)",
+      "description": "Built a full-stack SOC platform (Next.js 14 + FastAPI/SSE) with alert triage, incident forensics, FL model zoo, hash-chained audits, and an LLM copilot spanning 5+ analyst workflows. Trained federated FV-DNN (image branch + meta-fusion) with multimodal drift detection, achieving ROC-AUC ≥ 0.93 on global splits and authored a blue-team spec over Firebase/GCP (SQL, object storage, Redis)."
+    },
+    {
+      "title": "Action Segmentation Using MS-TCN",
+      "description": "Engineered a multi-stage temporal convolutional network (MS-TCN) in PyTorch for frame-level action segmentation, achieving +13.8% F1@50 over single-stage TCN baselines on long untrimmed video sequences Optimized training with mixed precision (AMP) and GPU-aware batching, enabling sub-4.8 ms/frame inference and stable convergence on sequences exceeding 10k frames/video"
+    },
+    {
+      "title": "Driver Assistance System Using RT-DETR",
+      "description": "Designed a real-time ADAS pipeline using fine-tuned RT-DETR, achieving +18.6% mAP@50 over baseline DETR on dashcam-style data, with end-to-end inference latency of 3845 ms/frame on RTX-class GPUs Deployed a production-grade inference stack using FastAPI (ASGI) and Next.js, supporting 1080p video streams at 25 FPS with REST-based analytics endpoints"
+    }
+  ],
+  "Backend Engineer": [
+    {
+      "title": "Air Emissions Regional Intelligence System",
+      "description": "Architected a geospatial backend using PostgreSQL + PostGIS, Redis, and S3 object storage; integrated NASA Harmony OGC APIs for TEMPO multi-gas ingestion, reducing spatial query latency by 46% Designed a Unified Pollution Exposure Score (UPES) and pollution-aware routing engine using OSMnx with multi-objective optimization, enabling 18% lower exposure routes compared to shortest-path baselines while maintaining sub-220 ms route computation latency"
+    },
+    {
+      "title": "Agentic RAG Multi-Project Research Lab",
+      "description": "Designed a secure, multi-tenant RAG framework with strict project-level isolation, PII masking, embedding-based retrieval, and evaluation harnesses (precision@k, retrieval recall, hallucination rate monitoring) Integrated automated red-team testing and retrieval benchmarking across 10k+ document corpora, reducing hallucination incidence by 27% under adversarial prompting (Demo: github.com/username/secure-agentic-rag)"
+    },
+    {
+      "title": "Multi-person Behaviour Recognition System",
+      "description": "Implemented an offline, modular gRPC pipeline integrating YOLO-based detection, DeepSORT-style MOT, pose estimation, and spatio-temporal action recognition for simultaneous tracking of 10+ subjects per frame Optimized inter-service communication and batching, reducing pipeline latency by 31% and enabling sub-120 ms end-to-end processing on multi-camera video sequences (Demo: github.com/username/mp-behavior-recognition)"
+    }
+  ],
+  "CV Engineer": [
+    {
+      "title": "Driver Assistance System Using RT-DETR",
+      "description": "Designed a real-time ADAS pipeline using fine-tuned RT-DETR, achieving +18.6% mAP@50 over baseline DETR on dashcam-style data, with end-to-end inference latency of 3845 ms/frame on RTX-class GPUs Deployed a production-grade inference stack using FastAPI (ASGI) and Next.js, supporting 1080p video streams at 25 FPS with REST-based analytics endpoints"
+    },
+    {
+      "title": "Multi-person Behaviour Recognition System",
+      "description": "Implemented an offline, modular gRPC pipeline integrating YOLO-based detection, DeepSORT-style MOT, pose estimation, and spatio-temporal action recognition for simultaneous tracking of 10+ subjects per frame Optimized inter-service communication and batching, reducing pipeline latency by 31% and enabling sub-120 ms end-to-end processing on multi-camera video sequences"
+    },
+    {
+      "title": "Action Segmentation Using MS-TCN",
+      "description": "Implemented an MS-TCN architecture in PyTorch for frame-level video action segmentation, improving segmental F1@50 by +14.2% compared to single-stage TCN baselines Trained and evaluated on long untrimmed videos (10k+ frames/sequence), achieving stable convergence and sub-5 ms/frame inference during evaluation"
+    }
+  ]
+}
