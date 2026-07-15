@@ -1266,6 +1266,35 @@ a.sidebar-info-value:hover {
   gap: 20px;
 }
 
+.terminal-skill-module {
+  margin: 8px 0 18px;
+  padding: 12px 0 4px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.terminal-skill-module:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.terminal-module-header {
+  color: var(--accent-retro) !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.terminal-skill-row {
+  margin-bottom: 6px !important;
+  padding-left: 8px;
+}
+
+.terminal-skill-row .output {
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
 .prompt {
   color: var(--accent-retro);
 }
