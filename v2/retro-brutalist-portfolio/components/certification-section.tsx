@@ -8,9 +8,6 @@ export function CertificationSection({ data = certificationData }: Certification
   return (
     <div className="section-stack">
       <h2 className="section-title">Certification</h2>
-      <p style={{ color: "var(--accent-retro)", fontSize: "0.75rem", marginTop: "-8px" }}>
-        CREDENTIAL_STORE · {data.items.length} ENTRIES
-      </p>
 
       <div className="timeline">
         {data.items.map((item, index) => (
