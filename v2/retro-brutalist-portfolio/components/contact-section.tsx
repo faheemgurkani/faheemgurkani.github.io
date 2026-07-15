@@ -11,6 +11,7 @@ import { ProcessingDots } from "@/components/processing-dots"
 
 export function ContactSection() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+  const [resumeOpen, setResumeOpen] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -53,42 +54,43 @@ export function ContactSection() {
         </div>
       </section>
 
-      <div className="services-grid" style={{ marginBottom: "8px" }}>
-        <div className="service-card">
-          <span className="project-tag">EMAIL</span>
-          <h4 className="service-title">Direct Line</h4>
-          <p className="service-description">
-            <a href={`mailto:${contactData.email}`} style={{ color: "inherit" }}>
-              {contactData.email}
-            </a>
-          </p>
-        </div>
-        <div className="service-card">
-          <span className="project-tag">PHONE</span>
-          <h4 className="service-title">Voice Channel</h4>
-          <p className="service-description">{contactData.phone}</p>
-        </div>
-        <div className="service-card">
-          <span className="project-tag">LOC</span>
-          <h4 className="service-title">Base</h4>
-          <p className="service-description">{contactData.location}</p>
-        </div>
-        <div className="service-card">
-          <span className="project-tag">CV</span>
-          <h4 className="service-title">Resume Packs</h4>
-          <p className="service-description" style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+      <div
+        className={`resume-pack-card ${resumeOpen ? "resume-pack-card-open" : ""}`}
+      >
+        <button
+          type="button"
+          className="resume-pack-trigger"
+          onClick={() => setResumeOpen((o) => !o)}
+          aria-expanded={resumeOpen}
+        >
+          <div className="resume-pack-trigger-text">
+            <span className="project-tag">CV</span>
+            <h4 className="service-title">Resume Packs</h4>
+            <p className="service-description">
+              Download a role-specific resume — AI/ML, Backend, or CV Engineer.
+            </p>
+          </div>
+          <span className="resume-pack-chevron" aria-hidden>
+            {resumeOpen ? "▲" : "▼"}
+          </span>
+        </button>
+
+        {resumeOpen && (
+          <div className="resume-pack-panel" role="list">
             {RESUME_OPTIONS.map((resume) => (
               <a
                 key={resume.path}
                 href={resume.path}
                 download={resume.filename}
-                style={{ color: "var(--accent-retro)" }}
+                className="resume-pack-link"
+                role="listitem"
               >
-                ↓ {resume.label}
+                <span>↓ {resume.label}</span>
+                <span className="resume-pack-link-meta">PDF</span>
               </a>
             ))}
-          </p>
-        </div>
+          </div>
+        )}
       </div>
 
       <form onSubmit={handleSubmit} className="contact-form">

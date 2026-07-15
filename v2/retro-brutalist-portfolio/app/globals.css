@@ -503,6 +503,84 @@ a.sidebar-info-value:hover {
   box-shadow: 4px 4px 0px var(--accent-retro);
 }
 
+.resume-pack-card {
+  border: 2px solid var(--border-color);
+  background: var(--surface);
+  transition: 0.3s;
+  max-width: 420px;
+}
+
+.resume-pack-card:hover,
+.resume-pack-card-open {
+  border-color: var(--accent-retro);
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 0px var(--accent-retro);
+}
+
+.resume-pack-trigger {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font-family: inherit;
+}
+
+.resume-pack-trigger-text .service-title {
+  margin-bottom: 6px;
+}
+
+.resume-pack-chevron {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-retro);
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+.resume-pack-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 20px 20px;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 16px;
+  margin: 0 20px 0;
+}
+
+.resume-pack-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 2px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+  transition: 0.2s;
+}
+
+.resume-pack-link:hover {
+  border-color: var(--accent-retro);
+  color: var(--accent-retro);
+}
+
+.resume-pack-link-meta {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+}
+
 .service-title {
   font-size: 1rem;
   font-weight: 700;
