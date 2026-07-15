@@ -3,6 +3,7 @@ name: Deploy Portfolio
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,18 +17,31 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: v2/retro-brutalist-portfolio
     steps:
       - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: pnpm
+          cache-dependency-path: v2/retro-brutalist-portfolio/pnpm-lock.yaml
 
-      - run: npm install
-      - run: npm run build
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build
+
+      - name: Add .nojekyll for GitHub Pages
+        run: touch out/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: v2/retro-brutalist-portfolio/out
 
       - uses: actions/deploy-pages@v4
