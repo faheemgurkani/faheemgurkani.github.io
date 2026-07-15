@@ -37,23 +37,6 @@ export function ContactSection() {
     <div className="section-stack">
       <h2 className="section-title">Contact</h2>
 
-      <section className="terminal-section terminal-compact">
-        <div className="terminal-header">CONTACT_PROTOCOL.SH</div>
-        <div className="terminal-row">
-          <span className="prompt">{"guest@system:~$"}</span>
-          <span className="command">run contact_protocol.sh</span>
-        </div>
-        <div className="terminal-row">
-          <span className="output">
-            {"> Establishing secure connection"}
-            <ProcessingDots />
-          </span>
-        </div>
-        <div className="terminal-row">
-          <span className="output">{contactData.intro}</span>
-        </div>
-      </section>
-
       <div
         className={`resume-pack-card ${resumeOpen ? "resume-pack-card-open" : ""}`}
       >
@@ -92,6 +75,23 @@ export function ContactSection() {
           </div>
         )}
       </div>
+
+      <section className="terminal-section terminal-compact">
+        <div className="terminal-header">CONTACT_PROTOCOL.SH</div>
+        <div className="terminal-row">
+          <span className="prompt">{"guest@system:~$"}</span>
+          <span className="command">run contact_protocol.sh</span>
+        </div>
+        <div className="terminal-row">
+          <span className="output">
+            {"> Establishing secure connection"}
+            <ProcessingDots />
+          </span>
+        </div>
+        <div className="terminal-row">
+          <span className="output">{contactData.intro}</span>
+        </div>
+      </section>
 
       <form onSubmit={handleSubmit} className="contact-form">
         <input type="hidden" name="_captcha" value="false" />

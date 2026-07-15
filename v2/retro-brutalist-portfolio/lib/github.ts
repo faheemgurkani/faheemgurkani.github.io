@@ -18,6 +18,8 @@ export interface GitHubRepo {
   stargazers_count: number
   forks_count: number
   updated_at: string
+  /** Last push / commit activity (prefer over updated_at for “recently worked”). */
+  pushed_at?: string
   fork?: boolean
   topics?: string[]
   language: string | null
@@ -55,8 +57,29 @@ export interface GitHubStats {
   linesOfCode: number
   linesOfCodeK: number
   totalLanguageBytes: number
+  /** Contributions in the last year (public graph; may undercount private). */
+  contributionsLastYear?: number
   fetchedAt: string
   live: boolean
+}
+
+export interface ContributionDay {
+  date: string
+  count: number
+  level: number
+}
+
+export interface ContributionCalendar {
+  total: number
+  contributions: ContributionDay[]
+  fetchedAt: string
+  live: boolean
+}
+
+export interface LanguageStat {
+  name: string
+  bytes: number
+  percent: number
 }
 
 /** Only available in Node/build — never expose to the browser. */
@@ -233,7 +256,7 @@ export async function fetchGitHubStats(options?: {
   const [userRes, reposRes] = await Promise.all([
     githubFetch(`${GITHUB_API}/users/${GITHUB_USERNAME}`, "application/vnd.github.v3+json"),
     githubFetch(
-      `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner&sort=updated`,
+      `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner&sort=pushed`,
     ),
   ])
 
@@ -253,12 +276,14 @@ export async function fetchGitHubStats(options?: {
   let totalLanguageBytes = 0
   if (enrichLanguages) {
     const languageMaps = await Promise.all(
-      filtered.map((r) => fetchRepoLanguages(r.name).catch(() => ({}))),
+      filtered.map((r) =>
+        fetchRepoLanguages(r.name).catch((): Record<string, number> => ({})),
+      ),
     )
-    totalLanguageBytes = languageMaps.reduce(
-      (sum, map) => sum + Object.values(map).reduce((a, b) => a + b, 0),
-      0,
-    )
+    totalLanguageBytes = languageMaps.reduce((sum, map) => {
+      const bytes = Object.values(map).reduce((a, b) => a + b, 0)
+      return sum + bytes
+    }, 0)
   } else {
     // Live path: estimate from GitHub's repo size (KB) — no extra API calls.
     totalLanguageBytes = filtered.reduce((sum, r) => sum + (r.size ?? 0) * 1024, 0)
@@ -266,6 +291,14 @@ export async function fetchGitHubStats(options?: {
 
   const linesOfCode = estimateLines(totalLanguageBytes)
   const linesOfCodeK = Math.max(1, Math.round(linesOfCode / 1000))
+
+  let contributionsLastYear: number | undefined
+  try {
+    const cal = await fetchContributionCalendar()
+    contributionsLastYear = cal.total
+  } catch {
+    /* optional */
+  }
 
   return {
     yearsActive,
@@ -277,6 +310,7 @@ export async function fetchGitHubStats(options?: {
     linesOfCode,
     linesOfCodeK,
     totalLanguageBytes,
+    contributionsLastYear,
     fetchedAt: new Date().toISOString(),
     live: true,
   }
@@ -285,6 +319,105 @@ export async function fetchGitHubStats(options?: {
 /** @deprecated use fetchGitHubStats — kept for callers */
 export async function fetchGitHubStatsLite(): Promise<GitHubStats> {
   return fetchGitHubStats({ enrichLanguages: false })
+}
+
+const CONTRIBUTIONS_API = `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`
+
+/**
+ * Contribution heatmap data.
+ * Prefers baked GraphQL calendar (private-aware) when live public mirror undercounts,
+ * but always tries the live public API first for freshness.
+ */
+export async function fetchContributionCalendar(): Promise<ContributionCalendar> {
+  let live: ContributionCalendar | null = null
+
+  try {
+    const res = await fetch(CONTRIBUTIONS_API, { cache: "no-store" })
+    if (res.ok) {
+      const data = (await res.json()) as {
+        total?: { lastYear?: number } | number
+        contributions?: ContributionDay[]
+      }
+      const total =
+        typeof data.total === "number"
+          ? data.total
+          : (data.total?.lastYear ?? 0)
+      const contributions = (data.contributions ?? []).map((d) => ({
+        date: d.date,
+        count: d.count ?? 0,
+        level: Math.min(4, Math.max(0, d.level ?? 0)),
+      }))
+      live = {
+        total,
+        contributions,
+        fetchedAt: new Date().toISOString(),
+        live: true,
+      }
+    }
+  } catch {
+    /* fall through */
+  }
+
+  try {
+    const baked = await fetch(`/data/github-contributions.json?t=${Date.now()}`, {
+      cache: "no-store",
+    })
+    if (baked.ok) {
+      const json = (await baked.json()) as ContributionCalendar
+      // Prefer baked if it has a higher total (private contributions via GraphQL bake).
+      if (!live || (json.total ?? 0) > (live.total ?? 0)) {
+        return {
+          ...json,
+          live: false,
+        }
+      }
+    }
+  } catch {
+    /* ignore */
+  }
+
+  if (live) return live
+  throw new Error("Contribution calendar unavailable")
+}
+
+/**
+ * Aggregate language bytes across owned non-fork repos (primary language counts live;
+ * byte-accurate when language maps are available from bake).
+ */
+export async function fetchTopLanguages(limit = 8): Promise<LanguageStat[]> {
+  try {
+    const res = await githubFetch(
+      `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner&sort=pushed`,
+    )
+    if (!res.ok) throw new Error(`repos ${res.status}`)
+    const repos: GitHubRepo[] = await res.json()
+    const filtered = filterPortfolioRepos(repos)
+
+    // Live path: weight by repo size attributed to primary language (cheap, no N+1).
+    const bytesByLang: Record<string, number> = {}
+    for (const repo of filtered) {
+      if (!repo.language) continue
+      const weight = Math.max(1, (repo.size ?? 1) * 1024)
+      bytesByLang[repo.language] = (bytesByLang[repo.language] ?? 0) + weight
+    }
+
+    const total = Object.values(bytesByLang).reduce((a, b) => a + b, 0) || 1
+    return Object.entries(bytesByLang)
+      .map(([name, bytes]) => ({
+        name,
+        bytes,
+        percent: Math.round((bytes / total) * 1000) / 10,
+      }))
+      .sort((a, b) => b.bytes - a.bytes)
+      .slice(0, limit)
+  } catch {
+    const baked = await fetch(`/data/github-languages.json?t=${Date.now()}`, {
+      cache: "no-store",
+    })
+    if (!baked.ok) return []
+    const json = (await baked.json()) as LanguageStat[]
+    return json.slice(0, limit)
+  }
 }
 
 /**
@@ -298,7 +431,7 @@ export async function fetchGitHubProjects(options?: {
   const enrich = Boolean(options?.enrich && getServerToken())
 
   const res = await githubFetch(
-    `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&type=owner`,
+    `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&sort=pushed&type=owner`,
   )
 
   if (!res.ok) {
@@ -354,8 +487,8 @@ export async function fetchGitHubProjects(options?: {
       homepage: repo.homepage || undefined,
       stars: repo.stargazers_count,
       forks: repo.forks_count > 0 ? repo.forks_count : undefined,
-      lastUpdated: formatLastUpdated(repo.updated_at),
-      updatedAtRaw: repo.updated_at,
+      lastUpdated: formatLastUpdated(repo.pushed_at || repo.updated_at),
+      updatedAtRaw: repo.pushed_at || repo.updated_at,
       linesOfCode: lines,
       technologies,
     }

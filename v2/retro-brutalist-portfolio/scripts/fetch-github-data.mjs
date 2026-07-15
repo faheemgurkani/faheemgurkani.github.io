@@ -143,7 +143,7 @@ async function main() {
 
   const [userRes, reposRes] = await Promise.all([
     gh(`${GITHUB_API}/users/${GITHUB_USERNAME}`, "application/vnd.github.v3+json"),
-    gh(`${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&type=owner`),
+    gh(`${GITHUB_API}/users/${GITHUB_USERNAME}/repos?per_page=100&sort=pushed&type=owner`),
   ])
   const user = await userRes.json()
   const repos = await reposRes.json()
@@ -212,8 +212,8 @@ async function main() {
       homepage: repo.homepage || undefined,
       stars: repo.stargazers_count,
       forks: repo.forks_count > 0 ? repo.forks_count : undefined,
-      lastUpdated: formatLastUpdated(repo.updated_at),
-      updatedAtRaw: repo.updated_at,
+      lastUpdated: formatLastUpdated(repo.pushed_at || repo.updated_at),
+      updatedAtRaw: repo.pushed_at || repo.updated_at,
       linesOfCode: bytes > 0 ? estimateLines(bytes) : undefined,
       technologies,
     }
@@ -224,8 +224,118 @@ async function main() {
   writeFileSync(resolve(outDir, "github-stats.json"), JSON.stringify(stats, null, 2))
   writeFileSync(resolve(outDir, "github-projects.json"), JSON.stringify(projects, null, 2))
 
+  // Top languages (byte-accurate from /languages)
+  const langBytes = {}
+  for (const map of languagesPerRepo) {
+    for (const [lang, n] of Object.entries(map || {})) {
+      langBytes[lang] = (langBytes[lang] || 0) + n
+    }
+  }
+  const langTotal = Object.values(langBytes).reduce((a, b) => a + b, 0) || 1
+  const languages = Object.entries(langBytes)
+    .map(([name, bytes]) => ({
+      name,
+      bytes,
+      percent: Math.round((bytes / langTotal) * 1000) / 10,
+    }))
+    .sort((a, b) => b.bytes - a.bytes)
+    .slice(0, 10)
+  writeFileSync(resolve(outDir, "github-languages.json"), JSON.stringify(languages, null, 2))
+
+  // Contribution calendar — prefer GraphHub GraphQL (includes private when token owns account)
+  try {
+    let total = 0
+    let contributions = []
+
+    const gqlRes = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        ...headers("application/json"),
+        Authorization: `bearer ${token}`,
+      },
+      body: JSON.stringify({
+        query: `
+          query($login: String!) {
+            user(login: $login) {
+              contributionsCollection {
+                contributionCalendar {
+                  totalContributions
+                  weeks {
+                    contributionDays {
+                      date
+                      contributionCount
+                      contributionLevel
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+        variables: { login: GITHUB_USERNAME },
+      }),
+    })
+
+    if (gqlRes.ok) {
+      const gql = await gqlRes.json()
+      const cal = gql?.data?.user?.contributionsCollection?.contributionCalendar
+      if (cal) {
+        total = cal.totalContributions ?? 0
+        const levelMap = {
+          NONE: 0,
+          FIRST_QUARTILE: 1,
+          SECOND_QUARTILE: 2,
+          THIRD_QUARTILE: 3,
+          FOURTH_QUARTILE: 4,
+        }
+        contributions = (cal.weeks || []).flatMap((w) =>
+          (w.contributionDays || []).map((d) => ({
+            date: d.date,
+            count: d.contributionCount ?? 0,
+            level: levelMap[d.contributionLevel] ?? 0,
+          })),
+        )
+      }
+    }
+
+    if (!contributions.length) {
+      const calRes = await fetch(
+        `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`,
+      )
+      if (calRes.ok) {
+        const cal = await calRes.json()
+        total = typeof cal.total === "number" ? cal.total : cal.total?.lastYear ?? 0
+        contributions = (cal.contributions || []).map((d) => ({
+          date: d.date,
+          count: d.count ?? 0,
+          level: Math.min(4, Math.max(0, d.level ?? 0)),
+        }))
+      }
+    }
+
+    if (contributions.length) {
+      writeFileSync(
+        resolve(outDir, "github-contributions.json"),
+        JSON.stringify(
+          {
+            total,
+            contributions,
+            fetchedAt: new Date().toISOString(),
+            live: false,
+          },
+          null,
+          2,
+        ),
+      )
+      stats.contributionsLastYear = total
+      writeFileSync(resolve(outDir, "github-stats.json"), JSON.stringify(stats, null, 2))
+    }
+  } catch (err) {
+    console.warn("[fetch-github-data] Contributions bake skipped:", err.message)
+  }
+
   console.log(
-    `[fetch-github-data] OK · ${projects.length} projects · ~${linesOfCodeK}k LOC · ${totalStars} stars`,
+    `[fetch-github-data] OK · ${projects.length} projects · ~${linesOfCodeK}k LOC · ${totalStars} stars · ${languages.length} langs`,
   )
 }
 

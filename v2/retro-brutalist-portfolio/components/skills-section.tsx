@@ -1,5 +1,6 @@
 import { resumeData } from "@/lib/portfolio-data"
 import { ProcessingDots } from "@/components/processing-dots"
+import { GitHubLanguageBars } from "@/components/github-language-bars"
 
 interface SkillsSectionProps {
   data?: typeof resumeData
@@ -9,6 +10,7 @@ export function SkillsSection({ data = resumeData }: SkillsSectionProps) {
   return (
     <div className="section-stack">
       <h2 className="section-title">Skills</h2>
+      <GitHubLanguageBars />
       <section className="terminal-section terminal-compact">
         <div className="terminal-header">SYSTEM_CONSOLE.EXE</div>
 

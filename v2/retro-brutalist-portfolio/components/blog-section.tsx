@@ -73,7 +73,6 @@ export function BlogSection() {
                 style={{ background: "var(--text-primary)", color: "var(--bg-color)" }}
               >
                 <span>{post.code}</span>
-                {post.source && <span style={{ opacity: 0.7 }}>{post.source.toUpperCase()}</span>}
               </div>
               <div className="blog-card-body">
                 <div className="blog-meta">
@@ -83,13 +82,19 @@ export function BlogSection() {
                 </div>
                 <h3 className="blog-title">{post.title}</h3>
                 <p className="blog-excerpt">{post.excerpt}</p>
-                <div className="blog-tags">
-                  {post.tags.map((tag, i) => (
-                    <span key={i} className="blog-tag">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
+                {post.tags.filter(
+                  (tag) => !["medium", "substack"].includes(tag.toLowerCase()),
+                ).length > 0 && (
+                  <div className="blog-tags">
+                    {post.tags
+                      .filter((tag) => !["medium", "substack"].includes(tag.toLowerCase()))
+                      .map((tag, i) => (
+                        <span key={i} className="blog-tag">
+                          #{tag}
+                        </span>
+                      ))}
+                  </div>
+                )}
                 <a
                   href={post.href}
                   target="_blank"

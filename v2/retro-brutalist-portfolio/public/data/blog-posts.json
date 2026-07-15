@@ -1,38 +1,44 @@
 {
-  "fetchedAt": "2026-07-15T21:03:51.591Z",
+  "fetchedAt": "2026-07-15T22:28:53.187Z",
   "posts": [
     {
       "code": "LOG_001",
-      "title": "LocateAnything on Real Traffic: A Zero-Shot Evaluation on D²-City Dashcam Video",
-      "category": "Substack",
+      "title": "LocateAnything on Real Traffic: A Zero-Shot Evaluation on D²-City Dashcam Video",
+      "category": "Autonomous Vehicles",
       "date": "Jun 23, 2026",
-      "readTime": "20 min",
-      "excerpt": "Modern object detection does not primarily fail because models lack visual understanding; it fails because generalist models are never asked the right question in the right domain.…",
+      "readTime": "19 min",
+      "excerpt": "A zero-shot evaluation of LocateAnything-3B on D²-City, with no fine-tuning, no domain adaptation, just the pretrained model pointed at real traffic Modern object detection does no…",
       "tags": [
-        "substack"
+        "autonomous-vehicles",
+        "nvidia",
+        "computer-vision",
+        "vision-language-model"
       ],
-      "href": "https://therepresentationmanifold.substack.com/p/can-a-generalist-vision-language",
-      "source": "Substack",
-      "publishedAt": "2026-06-23T13:23:50.000Z"
+      "href": "https://medium.com/@faheemgurkani/can-a-generalist-vision-language-model-see-traffic-3ec6a85cf4d5",
+      "source": "Medium",
+      "publishedAt": "2026-06-22T20:29:01.000Z"
     },
     {
       "code": "LOG_002",
       "title": "The Epistemic Gap: Why Foundational Models Hallucinate and the Path to Calibrated Honesty",
-      "category": "Substack",
+      "category": "Foundational Model",
       "date": "Feb 01, 2026",
       "readTime": "12 min",
-      "excerpt": "Modern foundational models do not primarily fail because they lack intelligence; they fail because they lack epistemic self-awareness . Today’s large language models are trained to…",
+      "excerpt": "From Statistical Necessity to Reward Design Failure in Modern LLMs Modern foundational models do not primarily fail because they lack intelligence; they fail because they lack epis…",
       "tags": [
-        "substack"
+        "foundational-model",
+        "llm-hallucinations",
+        "llm",
+        "hallucinations"
       ],
-      "href": "https://therepresentationmanifold.substack.com/p/the-epistemic-gap-why-foundational",
-      "source": "Substack",
-      "publishedAt": "2026-02-01T17:31:34.000Z"
+      "href": "https://medium.com/@faheemgurkani/the-epistemic-gap-why-foundational-models-hallucinate-and-the-path-to-calibrated-honesty-cc637db665a9",
+      "source": "Medium",
+      "publishedAt": "2026-02-01T14:57:55.000Z"
     },
     {
       "code": "LOG_003",
       "title": "The Evolution of Vision Architectures: From CNNs to Vision Transformers and Swin Transformers",
-      "category": "swin transformer",
+      "category": "Swin Transformer",
       "date": "Dec 22, 2025",
       "readTime": "8 min",
       "excerpt": "From Inductive Bias to Scalable Self-Attention in Modern Computer Vision For nearly a decade, Convolutional Neural Networks (CNNs) stood as the foundational architecture of modern …",
@@ -49,7 +55,7 @@
     {
       "code": "LOG_004",
       "title": "RT-DETR: How DETRs Finally Beat YOLOs in Real-time Object Detection",
-      "category": "transformers",
+      "category": "Transformers",
       "date": "Nov 02, 2025",
       "readTime": "6 min",
       "excerpt": "How Baidu and Peking University’s RT-DETR redefines real-time object detection, outperforming YOLOs without relying on NMS For almost a decade, YOLO (You Only Look Once) models hav…",
@@ -65,7 +71,7 @@
     {
       "code": "LOG_005",
       "title": "Self-Supervision: Overcoming the Bottlenecks of Supervised Learning",
-      "category": "language modeling",
+      "category": "Language Modeling",
       "date": "Aug 15, 2025",
       "readTime": "4 min",
       "excerpt": "How Self-Supervised Learning has Powered Large Language Models and Beyond Supervised learning has been the workhorse of AI for decades. From image classification to fraud detection…",
@@ -82,13 +88,11 @@
     {
       "code": "LOG_006",
       "title": "Exploring Class Activation Maps (CAM): Unveiling the Decision-Making Process of CNNs",
-      "category": "Medium",
+      "category": "Essay",
       "date": "Jan 22, 2025",
       "readTime": "8 min",
       "excerpt": "A Comprehensive Guide to Class Activation Maps and Grad-CAM for Interpretable Deep Learning by making CNNs Transparent The rise of Convolutional Neural Networks (CNNs) have been pi…",
-      "tags": [
-        "medium"
-      ],
+      "tags": [],
       "href": "https://medium.com/@faheemgurkani/exploring-class-activation-maps-cam-unveiling-the-decision-making-process-of-cnns-fb9de759880e",
       "source": "Medium",
       "publishedAt": "2025-01-21T19:38:59.000Z"
@@ -96,7 +100,7 @@
     {
       "code": "LOG_007",
       "title": "The Dawn of Transfer Learning in NLP: Breaking Barriers with ULMFiT",
-      "category": "ulmfit",
+      "category": "Ulmfit",
       "date": "Jan 04, 2025",
       "readTime": "9 min",
       "excerpt": "How Universal Language Model Fine-Tuning Revolutionized Natural Language Processing Overview The field of Natural Language Processing (NLP) has advanced rapidly in recent years, wi…",
@@ -113,7 +117,7 @@
     {
       "code": "LOG_008",
       "title": "Exploring Compute-Optimal Strategies for LLM Training: Key Insights from Foundational Papers",
-      "category": "generative ai tools",
+      "category": "Generative Ai Tools",
       "date": "Nov 22, 2024",
       "readTime": "9 min",
       "excerpt": "Optimizing Model Performance Through Scaling Laws, Efficient Pretraining, and Real-World Applications Overview The rapid advancements in large language models (LLMs) have ushered i…",
@@ -130,7 +134,7 @@
     {
       "code": "LOG_009",
       "title": "Generative Configurations of Transformer-Based Language Models",
-      "category": "transformers",
+      "category": "Transformers",
       "date": "Nov 21, 2024",
       "readTime": "5 min",
       "excerpt": "Understanding the Inference Configuration Parameters for Optimizing Transformer-Based Language Models. Introduction When working with large language models (LLMs) such as those fou…",

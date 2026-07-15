@@ -2,14 +2,14 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import { WindowControls } from "@/components/window-controls"
-import { curatedProjects, RESUME_OPTIONS } from "@/lib/portfolio-data"
+import { curatedProjects } from "@/lib/portfolio-data"
 import { fetchGitHubProjects, type PortfolioProject } from "@/lib/github"
 
 type SortKey = "updated-desc" | "updated-asc" | "stars"
 type ResumeLabel = "All" | "AI/ML Engineer" | "Backend Engineer" | "CV Engineer"
 
 const SORT_OPTIONS: { key: SortKey; label: string }[] = [
-  { key: "updated-desc", label: "Latest first" },
+  { key: "updated-desc", label: "Last worked" },
   { key: "updated-asc", label: "Oldest first" },
   { key: "stars", label: "Most starred" },
 ]
@@ -355,18 +355,13 @@ export function PortfolioSection() {
         return da - db
       })
     } else {
+      // Default: most recently pushed / committed first
       result.sort((a, b) => {
         const da = a.updatedAtRaw ? new Date(a.updatedAtRaw).getTime() : 0
         const db = b.updatedAtRaw ? new Date(b.updatedAtRaw).getTime() : 0
         return db - da
       })
     }
-
-    result.sort((a, b) => {
-      if (a.isPrivate && !b.isPrivate) return -1
-      if (!a.isPrivate && b.isPrivate) return 1
-      return 0
-    })
 
     return result
   }, [allProjects, sortKey, activeResume, resumeProjectEntries, activeTech])
@@ -417,19 +412,6 @@ export function PortfolioSection() {
         >
           RESET
         </button>
-
-        <div className="retro-resume-links">
-          {RESUME_OPTIONS.map((resume) => (
-            <a
-              key={resume.path}
-              href={resume.path}
-              download={resume.filename}
-              className="filter-btn"
-            >
-              ↓ {resume.label}
-            </a>
-          ))}
-        </div>
       </div>
 
       {loading && projects.length === 0 ? (

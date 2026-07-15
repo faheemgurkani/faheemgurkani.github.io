@@ -5,6 +5,8 @@ import { aboutData } from "@/lib/portfolio-data"
 import { fetchGitHubStats, type GitHubStats } from "@/lib/github"
 import { ProcessingDots } from "@/components/processing-dots"
 import { StatCounter, type StatItem } from "@/components/stat-counter"
+import { GitHubHeatmap } from "@/components/github-heatmap"
+import { SpotifyNowPlaying } from "@/components/spotify-now-playing"
 
 interface AboutSectionProps {
   data?: typeof aboutData
@@ -51,8 +53,42 @@ function buildStats(live?: Partial<GitHubStats> | null): StatItem[] {
   ]
 }
 
+function buildProfileKpis(live?: Partial<GitHubStats> | null): StatItem[] {
+  const followers = live?.followers ?? 0
+  const repos = live?.publicRepos ?? 0
+  const contribs = live?.contributionsLastYear ?? 0
+  const following = live?.following ?? 0
+
+  return [
+    {
+      value: String(followers).padStart(2, "0"),
+      label: "Followers",
+      target: followers,
+      pad: 2,
+    },
+    {
+      value: String(repos).padStart(2, "0"),
+      label: "Public Repos",
+      target: repos,
+      pad: 2,
+    },
+    {
+      value: String(contribs),
+      label: "Contribs / Yr",
+      target: contribs,
+    },
+    {
+      value: String(following).padStart(2, "0"),
+      label: "Following",
+      target: following,
+      pad: 2,
+    },
+  ]
+}
+
 export function AboutSection({ data = aboutData }: AboutSectionProps) {
   const [stats, setStats] = useState<StatItem[]>(data.stats)
+  const [profileKpis, setProfileKpis] = useState<StatItem[]>(buildProfileKpis())
 
   useEffect(() => {
     let cancelled = false
@@ -62,6 +98,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
         const payload = await fetchGitHubStats({ enrichLanguages: false })
         if (cancelled) return
         setStats(buildStats(payload))
+        setProfileKpis(buildProfileKpis(payload))
       } catch {
         if (cancelled) return
         try {
@@ -71,6 +108,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
           if (res.ok) {
             const baked = (await res.json()) as GitHubStats
             setStats(buildStats(baked))
+            setProfileKpis(buildProfileKpis(baked))
             return
           }
         } catch {
@@ -94,41 +132,49 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
 
   return (
     <div className="section-stack">
-      <div>
-        <h2 className="section-title">About Me</h2>
-        <p style={{ color: "var(--accent-retro)", marginBottom: "10px" }}>
-          {data.initMessage}
-          <ProcessingDots /> ]
-        </p>
-        <h3 className="about-headline">
-          {data.headlineParts.before}
-          <span>{data.headlineParts.highlight}</span>
-          {data.headlineParts.after}
-        </h3>
-        <p className="about-description">{data.description}</p>
-      </div>
+      <h2 className="section-title">About Me</h2>
 
-      <div className="stats-bar stats-bar-compact">
-        {stats.map((stat) => (
-          <div key={`${stat.label}-${stat.target}-${stat.suffix ?? ""}`} className="stat-item">
-            <StatCounter stat={stat} />
-            <div className="stat-label">{stat.label}</div>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <h3 className="subsection-title">What I&apos;m Doing</h3>
-        <div className="services-grid">
-          {data.services.map((service, index) => (
-            <div key={index} className="service-card">
-              <span className="project-tag">{service.code}</span>
-              <h4 className="service-title">{service.title}</h4>
-              <p className="service-description">{service.description}</p>
-            </div>
-          ))}
+      <div className="about-intro-grid">
+        <div className="about-intro-copy">
+          <p style={{ color: "var(--accent-retro)", marginBottom: "10px" }}>
+            {data.initMessage}
+            <ProcessingDots /> ]
+          </p>
+          <h3 className="about-headline">
+            {data.headlineParts.before}
+            <span>{data.headlineParts.highlight}</span>
+            {data.headlineParts.after}
+          </h3>
+          <p className="about-description">{data.description}</p>
+        </div>
+        <div className="about-intro-spotify">
+          <SpotifyNowPlaying />
         </div>
       </div>
+
+      <div>
+        <h3 className="subsection-title">GitHub Profile Signal</h3>
+        <div className="stats-bar-stack">
+          <div className="stats-bar stats-bar-compact stats-bar-merged">
+            {stats.map((stat) => (
+              <div key={`${stat.label}-${stat.target}-${stat.suffix ?? ""}`} className="stat-item">
+                <StatCounter stat={stat} />
+                <div className="stat-label">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+          <div className="stats-bar stats-bar-compact stats-bar-merged stats-bar-merged-bottom">
+            {profileKpis.map((stat) => (
+              <div key={`${stat.label}-${stat.target}`} className="stat-item">
+                <StatCounter stat={stat} />
+                <div className="stat-label">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <GitHubHeatmap />
 
       <div className="marquee-container marquee-compact">
         <div className="marquee-text">

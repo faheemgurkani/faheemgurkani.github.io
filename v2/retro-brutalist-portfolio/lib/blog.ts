@@ -10,6 +10,8 @@ const MEDIUM_RSS = "https://medium.com/feed/@faheemgurkani"
 const SUBSTACK_RSS = "https://therepresentationmanifold.substack.com/feed"
 const RSS2JSON = "https://api.rss2json.com/v1/api.json"
 
+const PLATFORM_LABELS = new Set(["medium", "substack"])
+
 type Rss2JsonItem = {
   title?: string
   link?: string
@@ -61,6 +63,40 @@ function normaliseTitle(title: string): string {
     .trim()
 }
 
+/** Drop platform labels from RSS categories / tags. */
+function cleanTags(categories: string[] | undefined): string[] {
+  return (categories ?? [])
+    .map((c) => c.trim())
+    .filter(Boolean)
+    .filter((c) => !PLATFORM_LABELS.has(c.toLowerCase()))
+    .slice(0, 4)
+}
+
+function cleanCategory(raw: string | undefined): string {
+  if (!raw?.trim()) return "Essay"
+  const cleaned = raw.trim().replace(/-/g, " ")
+  if (PLATFORM_LABELS.has(cleaned.toLowerCase())) return "Essay"
+  return cleaned.replace(/\b\w/g, (c) => c.toUpperCase())
+}
+
+/**
+ * True when titles are the same article across Medium / Substack
+ * (exact match, containment, or high token overlap).
+ */
+function isSameArticle(a: string, b: string): boolean {
+  if (a === b) return true
+  if (a.length >= 24 && b.length >= 24 && (a.includes(b) || b.includes(a))) {
+    return true
+  }
+  const ta = new Set(a.split(" ").filter((w) => w.length > 2))
+  const tb = new Set(b.split(" ").filter((w) => w.length > 2))
+  if (ta.size === 0 || tb.size === 0) return false
+  let overlap = 0
+  for (const w of ta) if (tb.has(w)) overlap++
+  const ratio = overlap / Math.min(ta.size, tb.size)
+  return ratio >= 0.85 && overlap >= 4
+}
+
 function getServerApiKey(): string | undefined {
   if (typeof window !== "undefined") return undefined
   if (typeof process === "undefined") return undefined
@@ -91,25 +127,20 @@ async function fetchRssViaRss2Json(
   return data.items.map((item, i) => {
     const raw = item.content || item.description || ""
     const excerpt = stripHtml(raw).slice(0, 180)
-    const tags = (item.categories ?? [])
-      .map((c) => c.trim())
-      .filter(Boolean)
-      .slice(0, 4)
-    const category =
-      source === "Medium"
-        ? tags[0]
-          ? tags[0].replace(/-/g, " ")
-          : "Medium"
-        : "Substack"
+    const tags = cleanTags(item.categories)
+    const category = cleanCategory(tags[0])
 
     return {
-      code: source === "Medium" ? `MED_${String(i + 1).padStart(3, "0")}` : `SUB_${String(i + 1).padStart(3, "0")}`,
+      code:
+        source === "Medium"
+          ? `MED_${String(i + 1).padStart(3, "0")}`
+          : `SUB_${String(i + 1).padStart(3, "0")}`,
       title: item.title?.trim() || "Untitled",
-      category: category.replace(/\b\w/g, (c) => c.toUpperCase()),
+      category,
       date: formatDate(item.pubDate),
       readTime: estimateReadTime(stripHtml(raw)),
       excerpt: excerpt ? `${excerpt}${excerpt.length >= 180 ? "…" : ""}` : "No excerpt available.",
-      tags: tags.length ? tags : [source.toLowerCase()],
+      tags,
       href: (item.link || "").split("?")[0],
       source,
       publishedAt: item.pubDate ? new Date(item.pubDate).toISOString() : undefined,
@@ -117,7 +148,12 @@ async function fetchRssViaRss2Json(
   })
 }
 
-/** Merge Medium + Substack, newest first; dedupe near-identical titles. */
+/** Prefer Medium when the same piece exists on both platforms. */
+function sourceRank(source?: string): number {
+  return source === "Medium" ? 0 : 1
+}
+
+/** Merge Medium + Substack, newest first; drop cross-platform duplicates. */
 export async function fetchLiveBlogPosts(): Promise<BlogPost[]> {
   const results = await Promise.allSettled([
     fetchRssViaRss2Json(MEDIUM_RSS, "Medium"),
@@ -139,19 +175,33 @@ export async function fetchLiveBlogPosts(): Promise<BlogPost[]> {
     return db - da
   })
 
-  const seen = new Set<string>()
-  const deduped: BlogPost[] = []
+  const kept: BlogPost[] = []
   for (const post of posts) {
     const key = normaliseTitle(post.title)
-    if (seen.has(key)) continue
-    seen.add(key)
-    deduped.push({
+    const dupIndex = kept.findIndex((existing) =>
+      isSameArticle(normaliseTitle(existing.title), key),
+    )
+    if (dupIndex >= 0) {
+      // Prefer Medium when the same piece is cross-posted
+      if (sourceRank(post.source) < sourceRank(kept[dupIndex].source)) {
+        kept[dupIndex] = {
+          ...post,
+          code: kept[dupIndex].code,
+          tags: cleanTags(post.tags),
+          category: cleanCategory(post.category),
+        }
+      }
+      continue
+    }
+    kept.push({
       ...post,
-      code: `LOG_${String(deduped.length + 1).padStart(3, "0")}`,
+      code: `LOG_${String(kept.length + 1).padStart(3, "0")}`,
+      tags: cleanTags(post.tags),
+      category: cleanCategory(post.category),
     })
   }
 
-  return deduped
+  return kept
 }
 
 export const BLOG_FEED_META = {

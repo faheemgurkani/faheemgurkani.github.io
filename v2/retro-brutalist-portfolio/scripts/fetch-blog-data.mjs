@@ -1,6 +1,7 @@
 /**
  * Bake Medium + Substack posts via public RSS (rss2json).
  * Optional RSS2JSON_API_KEY in .env for higher rate limits.
+ * Cross-posted pieces are deduped (Medium preferred).
  */
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs"
 import { resolve, dirname } from "path"
@@ -34,6 +35,7 @@ loadEnvFile(resolve(root, ".env.local"))
 const MEDIUM_RSS = "https://medium.com/feed/@faheemgurkani"
 const SUBSTACK_RSS = "https://therepresentationmanifold.substack.com/feed"
 const RSS2JSON = "https://api.rss2json.com/v1/api.json"
+const PLATFORM_LABELS = new Set(["medium", "substack"])
 
 function stripHtml(html) {
   return html
@@ -64,6 +66,36 @@ function normaliseTitle(title) {
     .trim()
 }
 
+function cleanTags(categories) {
+  return (categories || [])
+    .map((c) => String(c).trim())
+    .filter(Boolean)
+    .filter((c) => !PLATFORM_LABELS.has(c.toLowerCase()))
+    .slice(0, 4)
+}
+
+function cleanCategory(raw) {
+  if (!raw?.trim()) return "Essay"
+  const cleaned = raw.trim().replace(/-/g, " ")
+  if (PLATFORM_LABELS.has(cleaned.toLowerCase())) return "Essay"
+  return cleaned.replace(/\b\w/g, (c) => c.toUpperCase())
+}
+
+function isSameArticle(a, b) {
+  if (a === b) return true
+  if (a.length >= 24 && b.length >= 24 && (a.includes(b) || b.includes(a))) return true
+  const ta = new Set(a.split(" ").filter((w) => w.length > 2))
+  const tb = new Set(b.split(" ").filter((w) => w.length > 2))
+  if (!ta.size || !tb.size) return false
+  let overlap = 0
+  for (const w of ta) if (tb.has(w)) overlap++
+  return overlap / Math.min(ta.size, tb.size) >= 0.85 && overlap >= 4
+}
+
+function sourceRank(source) {
+  return source === "Medium" ? 0 : 1
+}
+
 async function fetchSource(rssUrl, source) {
   const params = new URLSearchParams({ rss_url: rssUrl })
   if (process.env.RSS2JSON_API_KEY) {
@@ -77,15 +109,15 @@ async function fetchSource(rssUrl, source) {
   return (data.items || []).map((item, i) => {
     const raw = item.content || item.description || ""
     const excerpt = stripHtml(raw).slice(0, 180)
-    const tags = (item.categories || []).map((c) => c.trim()).filter(Boolean).slice(0, 4)
+    const tags = cleanTags(item.categories)
     return {
       code: source === "Medium" ? `MED_${String(i + 1).padStart(3, "0")}` : `SUB_${String(i + 1).padStart(3, "0")}`,
       title: (item.title || "Untitled").trim(),
-      category: source === "Substack" ? "Substack" : tags[0] ? tags[0].replace(/-/g, " ") : "Medium",
+      category: cleanCategory(tags[0]),
       date: formatDate(item.pubDate),
       readTime: estimateReadTime(stripHtml(raw)),
       excerpt: excerpt ? `${excerpt}${excerpt.length >= 180 ? "…" : ""}` : "No excerpt available.",
-      tags: tags.length ? tags : [source.toLowerCase()],
+      tags,
       href: (item.link || "").split("?")[0],
       source,
       publishedAt: item.pubDate ? new Date(item.pubDate).toISOString() : undefined,
@@ -121,22 +153,38 @@ async function main() {
     return db - da
   })
 
-  const seen = new Set()
-  const deduped = []
+  const kept = []
   for (const post of posts) {
     const key = normaliseTitle(post.title)
-    if (seen.has(key)) continue
-    seen.add(key)
-    deduped.push({ ...post, code: `LOG_${String(deduped.length + 1).padStart(3, "0")}` })
+    const dupIndex = kept.findIndex((existing) =>
+      isSameArticle(normaliseTitle(existing.title), key),
+    )
+    if (dupIndex >= 0) {
+      if (sourceRank(post.source) < sourceRank(kept[dupIndex].source)) {
+        kept[dupIndex] = {
+          ...post,
+          code: kept[dupIndex].code,
+          tags: cleanTags(post.tags),
+          category: cleanCategory(post.category),
+        }
+      }
+      continue
+    }
+    kept.push({
+      ...post,
+      code: `LOG_${String(kept.length + 1).padStart(3, "0")}`,
+      tags: cleanTags(post.tags),
+      category: cleanCategory(post.category),
+    })
   }
 
   const outDir = resolve(root, "public/data")
   mkdirSync(outDir, { recursive: true })
   writeFileSync(
     resolve(outDir, "blog-posts.json"),
-    JSON.stringify({ fetchedAt: new Date().toISOString(), posts: deduped }, null, 2),
+    JSON.stringify({ fetchedAt: new Date().toISOString(), posts: kept }, null, 2),
   )
-  console.log(`[fetch-blog-data] OK · ${deduped.length} posts baked`)
+  console.log(`[fetch-blog-data] OK · ${kept.length} posts baked`)
 }
 
 main().catch((err) => {

@@ -476,7 +476,29 @@ a.sidebar-info-value:hover {
   color: var(--text-secondary);
   font-size: 1rem;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: none;
+  margin-bottom: 0;
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.85fr);
+  gap: 20px;
+  align-items: center;
+}
+
+.about-intro-spotify {
+  min-width: 0;
+  margin-top: 27px;
+}
+
+.about-intro-spotify .signal-frame {
+  height: auto;
+}
+
+.about-intro-spotify .signal-frame-body {
+  padding: 12px;
+  gap: 10px;
 }
 
 .services-grid {
@@ -719,13 +741,6 @@ a.sidebar-info-value:hover {
   border-color: var(--text-primary);
 }
 
-.retro-resume-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-left: auto;
-}
-
 .filter-btn:disabled {
   opacity: 0.35;
   cursor: not-allowed;
@@ -937,6 +952,176 @@ a.sidebar-info-value:hover {
 /* Compact variants for section context */
 .stats-bar-compact {
   margin-bottom: 0;
+}
+
+.stats-bar-secondary {
+  padding: 18px 24px;
+  background: var(--bg-color);
+}
+
+.stats-bar-secondary .stat-item {
+  padding: 0 20px;
+}
+
+.stats-bar-merged {
+  flex-wrap: nowrap;
+  padding: 20px 12px;
+  margin-bottom: 0;
+}
+
+.stats-bar-merged .stat-item {
+  flex: 1 1 25%;
+  min-width: 0;
+  padding: 8px 12px;
+}
+
+.stats-bar-stack {
+  border: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-bar-stack .stats-bar {
+  border: none;
+}
+
+.stats-bar-merged-bottom {
+  border-top: 1px solid var(--border-color) !important;
+  background: var(--bg-color);
+}
+
+.signal-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.signal-frame {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.signal-frame-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  flex: 1;
+}
+
+.signal-frame-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.signal-frame-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+}
+
+.signal-frame-note,
+.signal-frame-link {
+  margin: 0;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.signal-frame-link:hover {
+  color: var(--accent-retro);
+}
+
+.heatmap-wrap {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.heatmap-wrap .react-activity-calendar {
+  width: 100%;
+  max-width: 100%;
+  color: var(--text-secondary);
+  font-family: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+}
+
+.heatmap-wrap .react-activity-calendar__scroll-container {
+  padding-bottom: 0;
+  overflow: visible;
+  width: 100%;
+}
+
+.heatmap-wrap .react-activity-calendar__calendar {
+  display: block;
+  max-width: 100%;
+}
+
+.heatmap-wrap rect {
+  stroke: #6a6a6a;
+  stroke-width: 1;
+  cursor: pointer;
+  transition: stroke 0.15s, opacity 0.15s;
+}
+
+.heatmap-wrap rect:hover {
+  stroke: var(--text-primary);
+  stroke-width: 1.5;
+  opacity: 0.95;
+}
+
+.react-activity-calendar__tooltip {
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  padding: 6px 10px;
+  border: 2px solid var(--accent-retro);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+  box-shadow: 4px 4px 0 var(--accent-retro);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.react-activity-calendar__tooltip-arrow {
+  fill: var(--surface);
+}
+
+.spotify-frame-body {
+  justify-content: space-between;
+}
+
+.spotify-widget-link {
+  display: block;
+  border: 2px solid var(--border-color);
+  background: #0d0d0d;
+  transition: 0.25s;
+}
+
+.spotify-widget-link:hover {
+  border-color: var(--accent-retro);
+  box-shadow: 4px 4px 0 var(--accent-retro);
+  transform: translateY(-2px);
+}
+
+.spotify-widget-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 84px;
+}
+
+.terminal-note {
+  color: var(--text-secondary) !important;
+  font-size: 0.75rem;
+  opacity: 0.85;
 }
 
 .marquee-compact {
@@ -1523,6 +1708,14 @@ footer {
 @media (max-width: 768px) {
   .about-headline {
     font-size: 1.75rem;
+  }
+
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signal-grid {
+    grid-template-columns: 1fr;
   }
 
   .sidebar-image,

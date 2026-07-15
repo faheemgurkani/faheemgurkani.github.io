@@ -26,6 +26,13 @@ export const socialLinks = [
 
 export const GITHUB_USERNAME = "faheemgurkani"
 
+/** Spotify GitHub Profile widget (now playing). */
+export const SPOTIFY_UID = "31s7sk5rygjmtvf7pv4v7tlpg3di"
+export const SPOTIFY_PROFILE_URL =
+  `https://spotify-github-profile.kittinanx.com/api/view?uid=${SPOTIFY_UID}&redirect=true`
+export const SPOTIFY_WIDGET_URL =
+  `https://spotify-github-profile.kittinanx.com/api/view?uid=${SPOTIFY_UID}&cover_image=true&theme=novatorem&show_offline=false&background_color=0d0d0d&interchange=false&bar_color=737373&bar_color_cover=false`
+
 export const RESUME_OPTIONS = [
   {
     label: "AI/ML Engineer",
@@ -122,24 +129,38 @@ export const resumeData = {
   experience: [
     {
       code: "EXP_01",
-      title: "AI Engineering Intern — NASTP",
-      period: "June 2025 — August 2025",
+      title: "Research Engineer — R7Simsens",
+      period: "Mar 2026 — Jun 2026 · Internship · Remote (Virginia, United States)",
       description:
-        "Built OCR workflows for business-card digitization and an offline gRPC multi-person behavior recognition system (detection, tracking, pose, action classification).",
+        "Developed LLM-based pipeline components for autonomous vehicle simulation infrastructure, focusing on structured map representation and generation. Contributed to multi-modal AI architectures spanning HD map and scenario generation, integrating state-of-the-art world foundation models.",
     },
     {
       code: "EXP_02",
-      title: "Research Intern — Harbin Engineering University",
-      period: "June 2025 — August 2025",
+      title: "Google Developer Groups on Campus — FAST Islamabad",
+      period: "Sep 2023 — May 2026 · Apprenticeship · On-site (Islamabad, Pakistan)",
       description:
-        "Completed technical and programming assignments on deep learning for speech processing research.",
+        "Officer, Backend Dev. / Technical Projects (Oct 2025 — May 2026). Head, Information & Coordination / PR-Internals (Sep 2024 — Oct 2025). Officer, Information & Coordination / PR-Internals (Sep 2023 — Sep 2024). Focus areas: organization skills, campus technical projects, and internal coordination.",
     },
     {
       code: "EXP_03",
-      title: "Research Intern — National Centre For Physics",
-      period: "July 2024 — July 2025",
+      title: "Research Intern — Harbin Engineering University",
+      period: "Jun 2025 — Aug 2025 · Internship · Remote (Islamabad, Pakistan)",
       description:
-        "Analyzed classical and deep learning models for object tracking; researched fault and anomaly detection for HVAC systems.",
+        "Completed technical and programming assignments on a research project in Artificial Intelligence — deep learning for speech processing.",
+    },
+    {
+      code: "EXP_04",
+      title: "AI Engineering Intern — NASTP",
+      period: "Jun 2025 — Aug 2025 · Internship · On-site (Rawalpindi, Pakistan)",
+      description:
+        "Designed and implemented an LLM-assisted OCR pipeline for business-card digitization with structured entity extraction and contact-management integration. Built an offline gRPC multi-person behavior analysis system combining object detection, MOT, pose estimation, and spatio-temporal action recognition for controlled evaluation and benchmarking.",
+    },
+    {
+      code: "EXP_05",
+      title: "Hosted Researcher — AITeC, National Centre for Physics (NCP)",
+      period: "Aug 2024 — Aug 2025 · Internship · On-site (Islamabad, Pakistan)",
+      description:
+        "Comparative analysis of classical and deep learning object-tracking methods with focus on single-object tracking (SOT). Researched deep learning fault/anomaly detection for HVAC systems, leading to an accepted IEEE SusTech 2026 paper: “Deep Learning-Based Fault Detection Framework for Predictive Maintenance in HVAC Systems.”",
     },
   ],
   skills: [
