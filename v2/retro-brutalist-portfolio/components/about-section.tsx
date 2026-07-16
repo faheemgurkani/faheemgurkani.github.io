@@ -6,6 +6,7 @@ import { fetchGitHubStats, type GitHubStats } from "@/lib/github"
 import { ProcessingDots } from "@/components/processing-dots"
 import { StatCounter, type StatItem } from "@/components/stat-counter"
 import { GitHubHeatmap } from "@/components/github-heatmap"
+import { AboutHeadline } from "@/components/about-headline"
 import { SpotifyNowPlaying } from "@/components/spotify-now-playing"
 
 interface AboutSectionProps {
@@ -140,11 +141,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
             {data.initMessage}
             <ProcessingDots /> ]
           </p>
-          <h3 className="about-headline">
-            {data.headlineParts.before}
-            <span>{data.headlineParts.highlight}</span>
-            {data.headlineParts.after}
-          </h3>
+          <AboutHeadline />
           <p className="about-description">{data.description}</p>
         </div>
         <div className="about-intro-spotify">
@@ -153,7 +150,7 @@ export function AboutSection({ data = aboutData }: AboutSectionProps) {
       </div>
 
       <div>
-        <h3 className="subsection-title">GitHub Profile Signal</h3>
+        <h3 className="subsection-title">Portfolio Signals</h3>
         <div className="stats-bar-stack">
           <div className="stats-bar stats-bar-compact stats-bar-merged">
             {stats.map((stat) => (

@@ -1,6 +1,9 @@
 export const profileData = {
   name: "Faheem.dev",
-  title: "AI Engineer | ML Engineer | Backend Engineer",
+  quote: {
+    text: "In the midst of chaos, there is also opportunity",
+    author: "Sun-Tzu, A Arte da Guerra",
+  },
   avatar: "/profile-picture.png",
   email: "faheemgurkani@gmail.com",
   phone: "+92 331-9090179",
@@ -61,11 +64,12 @@ function skillBar(level: number, width = 16): string {
 
 export const aboutData = {
   initMessage: "[ INITIALIZING PROTOCOL",
-  headline: "AI Engineer & Systems Builder",
+  headline: "Researcher & AI Engineer",
+  headlineRoles: ["AI", "ML", "Backend", "Systems"] as const,
   headlineParts: {
-    before: "AI ",
-    highlight: "Engineer",
-    after: " & Systems Builder",
+    before: "Researcher & ",
+    highlight: "AI",
+    after: " Engineer",
   },
   description:
     "I am a dedicated AI and Machine Learning Engineer with a strong foundation in Computer Science and Artificial Intelligence. Currently pursuing my Bachelor's at the National University of Computer and Emerging Sciences (Islamabad Campus), I specialize in LLMs, Computer Vision, Agentic Workflows (RAG, MCP), and production-grade backend systems.",
@@ -126,43 +130,105 @@ export const resumeData = {
       description: "Marks: 1019/1100 · Ranked 2nd highest in graduating class.",
     },
   ],
-  experience: [
-    {
-      code: "EXP_01",
-      title: "Research Engineer — R7Simsens",
-      period: "Mar 2026 — Jun 2026 · Internship · Remote (Virginia, United States)",
-      description:
-        "Developed LLM-based pipeline components for autonomous vehicle simulation infrastructure, focusing on structured map representation and generation. Contributed to multi-modal AI architectures spanning HD map and scenario generation, integrating state-of-the-art world foundation models.",
-    },
-    {
-      code: "EXP_02",
-      title: "Google Developer Groups on Campus — FAST Islamabad",
-      period: "Sep 2023 — May 2026 · Apprenticeship · On-site (Islamabad, Pakistan)",
-      description:
-        "Officer, Backend Dev. / Technical Projects (Oct 2025 — May 2026). Head, Information & Coordination / PR-Internals (Sep 2024 — Oct 2025). Officer, Information & Coordination / PR-Internals (Sep 2023 — Sep 2024). Focus areas: organization skills, campus technical projects, and internal coordination.",
-    },
-    {
-      code: "EXP_03",
-      title: "Research Intern — Harbin Engineering University",
-      period: "Jun 2025 — Aug 2025 · Internship · Remote (Islamabad, Pakistan)",
-      description:
-        "Completed technical and programming assignments on a research project in Artificial Intelligence — deep learning for speech processing.",
-    },
-    {
-      code: "EXP_04",
-      title: "AI Engineering Intern — NASTP",
-      period: "Jun 2025 — Aug 2025 · Internship · On-site (Rawalpindi, Pakistan)",
-      description:
-        "Designed and implemented an LLM-assisted OCR pipeline for business-card digitization with structured entity extraction and contact-management integration. Built an offline gRPC multi-person behavior analysis system combining object detection, MOT, pose estimation, and spatio-temporal action recognition for controlled evaluation and benchmarking.",
-    },
-    {
-      code: "EXP_05",
-      title: "Hosted Researcher — AITeC, National Centre for Physics (NCP)",
-      period: "Aug 2024 — Aug 2025 · Internship · On-site (Islamabad, Pakistan)",
-      description:
-        "Comparative analysis of classical and deep learning object-tracking methods with focus on single-object tracking (SOT). Researched deep learning fault/anomaly detection for HVAC systems, leading to an accepted IEEE SusTech 2026 paper: “Deep Learning-Based Fault Detection Framework for Predictive Maintenance in HVAC Systems.”",
-    },
-  ],
+  experience: {
+    jobs: [
+      {
+        code: "EXP_01",
+        title: "Research Engineer",
+        company: "R7Simsens",
+        employmentType: "Internship",
+        period: "Mar 2026 — Jun 2026",
+        duration: "4 mos",
+        location: "Virginia, United States · Remote",
+        bullets: [
+          "Developed LLM-based pipeline components for autonomous vehicle simulation infrastructure, focusing on structured map representation and generation.",
+          "Contributed to multi-modal AI architectures spanning HD map and scenario generation, integrating state-of-the-art world foundation models.",
+        ],
+        skills: ["Research and Development (R&D)"],
+      },
+      {
+        code: "EXP_02",
+        title: "Research Intern",
+        company: "Harbin Engineering University",
+        employmentType: "Internship",
+        period: "Jun 2025 — Aug 2025",
+        duration: "3 mos",
+        location: "Islamabad, Pakistan · Remote",
+        bullets: [
+          "Completed technical and programming assignments on a research project in Artificial Intelligence — deep learning for speech processing.",
+        ],
+      },
+      {
+        code: "EXP_03",
+        title: "AI Engineering Intern",
+        company: "National Aerospace Science & Technology Park (NASTP)",
+        employmentType: "Internship",
+        period: "Jun 2025 — Aug 2025",
+        duration: "3 mos",
+        location: "Rawalpindi, Pakistan · On-site",
+        bullets: [
+          "Designed and implemented an LLM-assisted OCR pipeline for business-card digitization with structured entity extraction and contact-management integration.",
+          "Built an offline gRPC multi-person behavior analysis system combining object detection, MOT, pose estimation, and spatio-temporal action recognition for controlled evaluation and benchmarking.",
+        ],
+        skills: ["Machine Learning", "Deep Learning"],
+      },
+      {
+        code: "EXP_04",
+        title: "Hosted Researcher",
+        company: "AITeC, National Centre for Physics (NCP)",
+        employmentType: "Internship",
+        period: "Aug 2024 — Aug 2025",
+        duration: "1 yr 1 mo",
+        location: "Islamabad, Pakistan · On-site",
+        bullets: [
+          "Comparative analysis of classical and deep learning object-tracking methods with focus on single-object tracking (SOT).",
+          "Researched deep learning fault/anomaly detection for HVAC systems, leading to an accepted IEEE SusTech 2026 paper: “Deep Learning-Based Fault Detection Framework for Predictive Maintenance in HVAC Systems.”",
+        ],
+      },
+    ],
+    societies: [
+      {
+        code: "SOC_01",
+        organization: "Google Developer Groups on Campus — FAST Islamabad",
+        employmentType: "Apprenticeship",
+        period: "Sep 2023 — May 2026",
+        duration: "2 yrs 9 mos",
+        location: "Islamabad, Pakistan · On-site",
+        roles: [
+          {
+            title: "Officer | Team: Backend Dev. / Technical Projects",
+            period: "Oct 2025 — May 2026",
+            duration: "8 mos",
+            bullets: [
+              "Lead backend development and technical project delivery for campus GDG initiatives.",
+              "Coordinate cross-functional teams on event tooling, APIs, and developer workflows.",
+            ],
+            skills: ["Organization Skills"],
+          },
+          {
+            title: "Head | Team: Information & Coordination / PR-Internals",
+            period: "Sep 2024 — Oct 2025",
+            duration: "1 yr 2 mos",
+            bullets: [
+              "Led information, coordination, and internal PR operations for the campus chapter.",
+              "Managed internal communications, event logistics, and officer coordination across teams.",
+            ],
+            skills: ["Organization Skills"],
+          },
+          {
+            title: "Officer | Team: Information & Coordination / PR-Internals",
+            period: "Sep 2023 — Sep 2024",
+            duration: "1 yr 1 mo",
+            bullets: [
+              "Supported PR-internals and information coordination for GDG FAST Islamabad events.",
+              "Assisted in organizing campus tech activities and member engagement programs.",
+            ],
+            skills: ["Organization Skills"],
+          },
+        ],
+      },
+    ],
+  },
   skills: [
     {
       id: "languages",
