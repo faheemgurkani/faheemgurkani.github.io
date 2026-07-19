@@ -1,7 +1,7 @@
 # Resume assets
 
-Place your three resume PDFs here. The app expects these filenames (or update `RESUME_OPTIONS` in `constants.ts` to match):
+Source file: `assests/CV - AI:ML:CV:SWE:Research Engineer.pdf`
 
-- `Muhammad-Faheem-AI-ML-Engineer.pdf` — AI/ML Engineer
-- `Muhammad-Faheem-Backend-Engineer.pdf` — Backend Engineer
-- `Muhammad-Faheem-CV-Engineer.pdf` — CV Engineer
+Published copy for the site:
+
+- `Muhammad-Faheem-AI-ML-CV-SWE-Research-Engineer.pdf` — AI/ML · CV · SWE · Research Engineer

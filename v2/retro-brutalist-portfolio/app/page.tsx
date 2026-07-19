@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useCallback, useRef, useState } from "react"
 import { ProfileSidebar } from "@/components/profile-sidebar"
 import { AboutSection } from "@/components/about-section"
 import { EducationSection } from "@/components/education-section"
@@ -8,13 +8,29 @@ import { ExperienceSection } from "@/components/experience-section"
 import { SkillsSection } from "@/components/skills-section"
 import { CertificationSection } from "@/components/certification-section"
 import { PortfolioSection } from "@/components/portfolio-section"
+import { PublicationsSection } from "@/components/publications-section"
 import { BlogSection } from "@/components/blog-section"
 import { ContactSection } from "@/components/contact-section"
-
-const sections = ["about", "experience", "portfolio", "skills", "certification", "education", "blog", "contact"] as const
+import {
+  SectionNavBar,
+  type ActiveSection,
+} from "@/components/section-nav-bar"
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<(typeof sections)[number]>("about")
+  const [activeSection, setActiveSection] = useState<ActiveSection>("about")
+  const sectionContentRef = useRef<HTMLDivElement>(null)
+
+  const handleSectionChange = useCallback((section: ActiveSection) => {
+    setActiveSection(section)
+  }, [])
+
+  const handlePortfolioNavigate = useCallback((section: ActiveSection) => {
+    setActiveSection(section)
+    sectionContentRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
+  }, [])
 
   return (
     <div className="portfolio-layout">
@@ -24,23 +40,27 @@ export default function Home() {
 
           <main className="main-panel">
             <div className="section-nav-sticky">
-              <nav className="section-nav">
-                {sections.map((section) => (
-                  <button
-                    key={section}
-                    onClick={() => setActiveSection(section)}
-                    className={`section-nav-btn ${activeSection === section ? "section-nav-btn-active" : ""}`}
-                  >
-                    {section}
-                  </button>
-                ))}
-              </nav>
+              <SectionNavBar
+                activeSection={activeSection}
+                onSectionChange={handleSectionChange}
+              />
             </div>
 
-            <div className="section-content">
+            <div
+              ref={sectionContentRef}
+              className="section-content"
+              key={activeSection}
+            >
               {activeSection === "about" && <AboutSection />}
               {activeSection === "experience" && <ExperienceSection />}
-              {activeSection === "portfolio" && <PortfolioSection />}
+              {activeSection === "projects" && (
+                <PortfolioSection onNavigateToSection={handlePortfolioNavigate} />
+              )}
+              {activeSection === "publications" && (
+                <PublicationsSection
+                  onNavigateToSection={handlePortfolioNavigate}
+                />
+              )}
               {activeSection === "skills" && <SkillsSection />}
               {activeSection === "certification" && <CertificationSection />}
               {activeSection === "education" && <EducationSection />}

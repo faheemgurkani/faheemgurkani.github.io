@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import { WindowControls } from "@/components/window-controls"
+import { PortfolioSiblingLink } from "@/components/portfolio-sibling-link"
+import type { ActiveSection } from "@/components/section-nav-bar"
 import { curatedProjects } from "@/lib/portfolio-data"
 import { fetchGitHubProjects, type PortfolioProject } from "@/lib/github"
 
@@ -214,7 +216,11 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
   )
 }
 
-export function PortfolioSection() {
+export function PortfolioSection({
+  onNavigateToSection,
+}: {
+  onNavigateToSection?: (section: ActiveSection) => void
+}) {
   const [projects, setProjects] = useState<PortfolioProject[]>(curatedProjects)
   const [loading, setLoading] = useState(true)
   const [sortKey, setSortKey] = useState<SortKey>("updated-desc")
@@ -375,7 +381,15 @@ export function PortfolioSection() {
 
   return (
     <div className="section-stack">
-      <h2 className="section-title">Latest Deployments</h2>
+      <header className="section-heading-block">
+        <h2 className="section-title">Projects</h2>
+        {onNavigateToSection && (
+          <PortfolioSiblingLink
+            target="publications"
+            onNavigate={onNavigateToSection}
+          />
+        )}
+      </header>
 
       <div className="filter-bar retro-filter-bar">
         <span className="retro-filters-heading">FILTERS</span>

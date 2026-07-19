@@ -36,23 +36,11 @@ export const SPOTIFY_PROFILE_URL =
 export const SPOTIFY_WIDGET_URL =
   `https://spotify-github-profile.kittinanx.com/api/view?uid=${SPOTIFY_UID}&cover_image=true&theme=novatorem&show_offline=false&background_color=0d0d0d&interchange=false&bar_color=737373&bar_color_cover=false`
 
-export const RESUME_OPTIONS = [
-  {
-    label: "AI/ML Engineer",
-    path: "/assets/Muhammad-Faheem-AI-ML-Engineer.pdf",
-    filename: "Muhammad Faheem - AI-ML Engineer.pdf",
-  },
-  {
-    label: "Backend Engineer",
-    path: "/assets/Muhammad-Faheem-Backend-Engineer.pdf",
-    filename: "Muhammad Faheem - Backend Engineer.pdf",
-  },
-  {
-    label: "CV Engineer",
-    path: "/assets/Muhammad-Faheem-CV-Engineer.pdf",
-    filename: "Muhammad Faheem - CV Engineer.pdf",
-  },
-] as const
+export const CV_DOWNLOAD = {
+  label: "AI/ML · CV · SWE · Research Engineer",
+  path: "/assets/Muhammad-Faheem-AI-ML-CV-SWE-Research-Engineer.pdf",
+  filename: "Muhammad Faheem - AI ML CV SWE Research Engineer.pdf",
+} as const
 
 export const FORMSUBMIT_ENDPOINT =
   "https://formsubmit.co/32703517175793864b061a2c1063759f"
@@ -515,6 +503,56 @@ export const blogData = {
     },
   ],
 }
+
+export const publicationsData = {
+  accepted: [
+    {
+      code: "PUB_001",
+      authors: "M. Faheem et al.",
+      title:
+        "Deep Learning-Based Fault Detection Framework for Predictive Maintenance in HVAC Systems",
+      venue:
+        "13th IEEE Conference on Technologies for Sustainability (SusTech 2026)",
+    },
+  ],
+  inPreparation: [
+    {
+      code: "PUB_002",
+      authors: "M. Faheem et al.",
+      title:
+        "Per-Layer Clipping and Gradient Heterogeneity in Differentially Private Federated Learning for Speech Foundation Models",
+      venue: "targeting INTERSPEECH 2026 / ICASSP 2027",
+      details:
+        "Extends Apple NeurIPS 2025 per-layer clipping to WavLM/HuBERT for Speech Emotion Recognition and Speaker Verification; gradient heterogeneity analysis across tasks.",
+    },
+    {
+      code: "PUB_003",
+      authors: "M. Faheem and M. Qaiser",
+      title:
+        "Learning Kill-Chain Phase from Behavioral Context: A Comparison of Sequence Models Under API-Identity Ablation",
+      venue: "IEEE conference paper",
+      details:
+        "BiLSTM–CRF, Transformer, and hybrid sequence labeling on Avast–CTU CAPE Dataset; deliberate API-identity ablation to simulate zero-day and obfuscated traces.",
+    },
+    {
+      code: "PUB_004",
+      authors: "M. Faheem et al.",
+      title:
+        "Meta-Learned SOZ-Aware Adaptive Brain Graph Transformer for Cross-Patient Seizure Onset Prediction",
+      venue: "targeting NeurIPS / ICLR / AAAI",
+      details:
+        "Adaptive graph learning, meta-learning for unseen-patient generalization, and SOZ/electrode-coordinate clinical metadata integration on the HUP iEEG dataset.",
+    },
+    {
+      code: "PUB_005",
+      authors: "M. Faheem et al.",
+      title:
+        "KVBench: A Unified Evaluation Framework for Online and Offline Evaluation of KV Cache Compression Algorithms in Open-Source Large Language Models",
+      details:
+        "Unified interception-and-transformation engine benchmarking TurboQuant, QJL, and RocketKV on Qwen3-1.7B; dual offline/online metrics across 27 GPU sweep jobs on WikiText-2.",
+    },
+  ],
+} as const
 
 export const contactData = {
   email: "faheemgurkani@gmail.com",

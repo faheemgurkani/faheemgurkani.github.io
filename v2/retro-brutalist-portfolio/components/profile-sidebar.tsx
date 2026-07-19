@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Download } from "lucide-react";
 import { WindowControls } from "@/components/window-controls";
-import { profileData, socialLinks, RESUME_OPTIONS } from "@/lib/portfolio-data";
+import { profileData, socialLinks, CV_DOWNLOAD } from "@/lib/portfolio-data";
 import { SocialIcon } from "@/components/social-icons";
 
 interface ProfileSidebarProps {
@@ -54,7 +55,6 @@ async function measureLatency() {
 
 export function ProfileSidebar({ data = profileData }: ProfileSidebarProps) {
   const [socialOpen, setSocialOpen] = useState(false);
-  const [resumeOpen, setResumeOpen] = useState(false);
   const bootTimeRef = useRef<number | null>(null);
   const [clk, setClk] = useState("00:00:00");
   const [uptime, setUptime] = useState("00:00:00");
@@ -157,7 +157,6 @@ export function ProfileSidebar({ data = profileData }: ProfileSidebarProps) {
             className="sidebar-dropdown-trigger"
             onClick={() => {
               setSocialOpen((open) => !open);
-              setResumeOpen(false);
             }}
             aria-expanded={socialOpen}
             aria-controls="sidebar-connect-panel"
@@ -188,43 +187,16 @@ export function ProfileSidebar({ data = profileData }: ProfileSidebarProps) {
           </div>
         </div>
 
-        <div
-          className={`sidebar-dropdown ${resumeOpen ? "sidebar-dropdown-open" : ""}`}
+        <a
+          href={CV_DOWNLOAD.path}
+          download={CV_DOWNLOAD.filename}
+          className="sidebar-dropdown sidebar-dropdown-download"
         >
-          <button
-            type="button"
-            className="sidebar-dropdown-trigger"
-            onClick={() => {
-              setResumeOpen((open) => !open);
-              setSocialOpen(false);
-            }}
-            aria-expanded={resumeOpen}
-            aria-controls="sidebar-cv-panel"
-          >
-            <span>CV PACKS</span>
-            <span className="sidebar-dropdown-chevron" aria-hidden>
-              ▼
-            </span>
-          </button>
-          <div
-            id="sidebar-cv-panel"
-            className={`sidebar-dropdown-panel ${resumeOpen ? "sidebar-dropdown-panel-open" : ""}`}
-          >
-            <div className="sidebar-dropdown-panel-inner">
-              {RESUME_OPTIONS.map((resume) => (
-                <a
-                  key={resume.path}
-                  href={resume.path}
-                  download={resume.filename}
-                  className="sidebar-dropdown-link"
-                >
-                  <span>↓ {resume.label}</span>
-                  <span className="sidebar-dropdown-link-meta">PDF</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+          <span>DOWNLOAD CV</span>
+          <span className="cv-download-icon" aria-hidden>
+            <Download />
+          </span>
+        </a>
       </div>
 
       <div className="system-status sidebar-status">

@@ -4,14 +4,14 @@ import { useState } from "react"
 import {
   socialLinks,
   FORMSUBMIT_ENDPOINT,
-  RESUME_OPTIONS,
+  CV_DOWNLOAD,
   contactData,
 } from "@/lib/portfolio-data"
+import { Download } from "lucide-react"
 import { ProcessingDots } from "@/components/processing-dots"
 
 export function ContactSection() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
-  const [resumeOpen, setResumeOpen] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -37,44 +37,20 @@ export function ContactSection() {
     <div className="section-stack">
       <h2 className="section-title">Contact</h2>
 
-      <div
-        className={`resume-pack-card ${resumeOpen ? "resume-pack-card-open" : ""}`}
+      <a
+        href={CV_DOWNLOAD.path}
+        download={CV_DOWNLOAD.filename}
+        className="resume-pack-card resume-pack-download"
       >
-        <button
-          type="button"
-          className="resume-pack-trigger"
-          onClick={() => setResumeOpen((o) => !o)}
-          aria-expanded={resumeOpen}
-        >
-          <div className="resume-pack-trigger-text">
-            <span className="project-tag">CV</span>
-            <h4 className="service-title">Resume Packs</h4>
-            <p className="service-description">
-              Download a role-specific resume — AI/ML, Backend, or CV Engineer.
-            </p>
-          </div>
-          <span className="resume-pack-chevron" aria-hidden>
-            {resumeOpen ? "▲" : "▼"}
-          </span>
-        </button>
-
-        {resumeOpen && (
-          <div className="resume-pack-panel" role="list">
-            {RESUME_OPTIONS.map((resume) => (
-              <a
-                key={resume.path}
-                href={resume.path}
-                download={resume.filename}
-                className="resume-pack-link"
-                role="listitem"
-              >
-                <span>↓ {resume.label}</span>
-                <span className="resume-pack-link-meta">PDF</span>
-              </a>
-            ))}
-          </div>
-        )}
-      </div>
+        <div className="resume-pack-trigger-text">
+          <span className="project-tag">CV</span>
+          <h4 className="service-title">Download CV</h4>
+          <p className="service-description">{CV_DOWNLOAD.label}</p>
+        </div>
+        <span className="cv-download-icon cv-download-icon-lg" aria-hidden>
+          <Download />
+        </span>
+      </a>
 
       <section className="terminal-section terminal-compact">
         <div className="terminal-header">CONTACT_PROTOCOL.SH</div>
