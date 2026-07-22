@@ -768,7 +768,8 @@ a.sidebar-info-value:hover {
   padding: 0 0 8px;
   margin: 0;
   border: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--border-color) 55%, transparent);
   background: transparent;
   color: var(--text-secondary);
   font-family:
@@ -1730,17 +1731,22 @@ a.sidebar-info-value:hover {
 }
 
 .heatmap-wrap rect {
-  stroke: #6a6a6a;
-  stroke-width: 1;
+  stroke: rgba(255, 255, 255, 0.16) !important;
+  stroke-width: 1 !important;
   cursor: pointer;
   transition:
     stroke 0.15s,
     opacity 0.15s;
 }
 
+.heatmap-wrap rect[data-level="0"] {
+  stroke: rgba(255, 255, 255, 0.2) !important;
+  stroke-width: 1 !important;
+}
+
 .heatmap-wrap rect:hover {
-  stroke: var(--text-primary);
-  stroke-width: 1.5;
+  stroke: var(--text-primary) !important;
+  stroke-width: 1.5 !important;
   opacity: 0.95;
 }
 
@@ -2002,7 +2008,7 @@ a.sidebar-info-value:hover {
 
 .project-card-top {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
@@ -2043,6 +2049,33 @@ a.sidebar-info-value:hover {
   cursor: default;
 }
 
+.project-mini-link-disabled {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.project-card-top .project-visibility-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: none;
+  padding: 0;
+  background: none;
+  display: inline-block;
+  line-height: 1;
+  margin-bottom: 0;
+  font-family:
+    var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
+}
+
+.project-card-top .project-visibility-public {
+  color: var(--text-secondary);
+}
+
+.project-card-top .project-visibility-private {
+  color: var(--accent-retro);
+}
+
 .project-desc {
   font-size: 0.8rem;
   color: var(--text-secondary);
@@ -2051,9 +2084,14 @@ a.sidebar-info-value:hover {
   margin: 0;
 }
 
+.project-desc-wip {
+  margin: 0;
+}
+
 .project-wip-badge {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   align-self: flex-start;
   font-size: 0.65rem;
   font-weight: 700;
@@ -2062,6 +2100,37 @@ a.sidebar-info-value:hover {
   border: 1px solid var(--border-color);
   padding: 4px 8px;
   background: var(--bg-color);
+}
+
+.project-wip-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.75);
+  animation: wip-dot-pulse 1.25s ease-out infinite;
+}
+
+@keyframes wip-dot-pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.75);
+  }
+
+  70% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 7px rgba(74, 222, 128, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
 }
 
 .project-kpis {

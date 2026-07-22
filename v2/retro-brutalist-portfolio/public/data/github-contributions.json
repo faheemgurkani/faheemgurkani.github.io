@@ -1,41 +1,6 @@
 {
-  "total": 350,
+  "total": 386,
   "contributions": [
-    {
-      "date": "2025-07-13",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-07-14",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-07-15",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-07-16",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-07-17",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-07-18",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-07-19",
-      "count": 0,
-      "level": 0
-    },
     {
       "date": "2025-07-20",
       "count": 0,
@@ -1843,10 +1808,40 @@
     },
     {
       "date": "2026-07-16",
-      "count": 7,
-      "level": 2
+      "count": 15,
+      "level": 4
+    },
+    {
+      "date": "2026-07-17",
+      "count": 3,
+      "level": 1
+    },
+    {
+      "date": "2026-07-18",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-07-19",
+      "count": 1,
+      "level": 1
+    },
+    {
+      "date": "2026-07-20",
+      "count": 2,
+      "level": 1
+    },
+    {
+      "date": "2026-07-21",
+      "count": 11,
+      "level": 3
+    },
+    {
+      "date": "2026-07-22",
+      "count": 11,
+      "level": 3
     }
   ],
-  "fetchedAt": "2026-07-15T21:10:09.435Z",
+  "fetchedAt": "2026-07-22T11:45:25.614Z",
   "live": false
 }

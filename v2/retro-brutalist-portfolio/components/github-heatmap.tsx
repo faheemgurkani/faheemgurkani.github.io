@@ -14,8 +14,8 @@ const BLOCK_MARGIN = 3
 const WEEKDAY_LABEL_OFFSET = 34
 
 const THEME = {
-  light: ["#3a3a3a", "#5c5c5c", "#858585", "#b0b0b0", "#efefef"],
-  dark: ["#3a3a3a", "#5c5c5c", "#858585", "#b0b0b0", "#efefef"],
+  light: ["#121212", "#5c5c5c", "#858585", "#b0b0b0", "#efefef"],
+  dark: ["#121212", "#5c5c5c", "#858585", "#b0b0b0", "#efefef"],
 }
 
 export function GitHubHeatmap() {

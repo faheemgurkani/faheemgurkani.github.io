@@ -1,52 +1,52 @@
 [
   {
     "name": "Jupyter Notebook",
-    "bytes": 8631392,
-    "percent": 67.4
+    "bytes": 19557129,
+    "percent": 59.5
   },
   {
     "name": "Python",
-    "bytes": 3235340,
+    "bytes": 8303582,
     "percent": 25.3
   },
   {
-    "name": "JavaScript",
-    "bytes": 263431,
-    "percent": 2.1
+    "name": "TypeScript",
+    "bytes": 1545580,
+    "percent": 4.7
   },
   {
-    "name": "TypeScript",
-    "bytes": 192304,
-    "percent": 1.5
+    "name": "Rust",
+    "bytes": 1315656,
+    "percent": 4
+  },
+  {
+    "name": "Shell",
+    "bytes": 1113399,
+    "percent": 3.4
+  },
+  {
+    "name": "JavaScript",
+    "bytes": 337773,
+    "percent": 1
   },
   {
     "name": "C++",
-    "bytes": 187317,
-    "percent": 1.5
+    "bytes": 237829,
+    "percent": 0.7
+  },
+  {
+    "name": "PowerShell",
+    "bytes": 146352,
+    "percent": 0.4
   },
   {
     "name": "Assembly",
     "bytes": 132702,
-    "percent": 1
+    "percent": 0.4
   },
   {
     "name": "CSS",
-    "bytes": 76726,
-    "percent": 0.6
-  },
-  {
-    "name": "Shell",
-    "bytes": 64331,
-    "percent": 0.5
-  },
-  {
-    "name": "HTML",
-    "bytes": 10428,
-    "percent": 0.1
-  },
-  {
-    "name": "C",
-    "bytes": 8347,
-    "percent": 0.1
+    "bytes": 88108,
+    "percent": 0.3
   }
 ]

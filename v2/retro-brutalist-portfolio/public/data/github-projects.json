@@ -1,6 +1,33 @@
 [
   {
     "code": "REPO_01",
+    "title": "Preictal Research Documentation",
+    "category": "ai/ml",
+    "image": "/placeholder.svg",
+    "tags": "#SHELL #PYTHON",
+    "description": "No description provided.",
+    "stars": 0,
+    "lastUpdated": "Today",
+    "updatedAtRaw": "2026-07-22T11:24:53Z",
+    "linesOfCode": 25061,
+    "technologies": [
+      "Shell",
+      "Python"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Shell",
+        "percent": 68.6
+      },
+      {
+        "name": "Python",
+        "percent": 31.4
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_02",
     "title": "KV-Cache Interception and Transformation Engine",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/kv-cache-interception-and-transformation-engine",
@@ -8,16 +35,27 @@
     "description": "No description provided.",
     "repoUrl": "https://github.com/faheemgurkani/kv-cache-interception-and-transformation-engine",
     "stars": 1,
-    "lastUpdated": "1 weeks ago",
-    "updatedAtRaw": "2026-07-07T14:15:02Z",
+    "lastUpdated": "2 weeks ago",
+    "updatedAtRaw": "2026-07-07T14:11:04Z",
     "linesOfCode": 4453,
     "technologies": [
       "Python",
       "Shell"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 98.1
+      },
+      {
+        "name": "Shell",
+        "percent": 1.9
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_02",
+    "code": "REPO_03",
     "title": "LocateAnything on Real Traffic: A Zero-Shot Evaluation on D²-City Dashcam Video",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/locateanything-d2city-zero-shot-eval",
@@ -25,16 +63,27 @@
     "description": "No description provided.",
     "repoUrl": "https://github.com/faheemgurkani/locateanything-d2city-zero-shot-eval",
     "stars": 2,
-    "lastUpdated": "2 weeks ago",
-    "updatedAtRaw": "2026-06-26T18:38:29Z",
+    "lastUpdated": "4 weeks ago",
+    "updatedAtRaw": "2026-06-23T22:57:19Z",
     "linesOfCode": 1881,
     "technologies": [
       "Python",
       "Shell"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 86.6
+      },
+      {
+        "name": "Shell",
+        "percent": 13.4
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_03",
+    "code": "REPO_04",
     "title": "Autonomous Driving Using Neural Networks",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/autonomous-driving-using-neural-networks",
@@ -42,34 +91,93 @@
     "description": "No description provided.",
     "repoUrl": "https://github.com/faheemgurkani/autonomous-driving-using-neural-networks",
     "stars": 1,
-    "lastUpdated": "4 weeks ago",
-    "updatedAtRaw": "2026-06-17T18:41:14Z",
+    "lastUpdated": "1 months ago",
+    "updatedAtRaw": "2026-06-17T18:40:33Z",
     "linesOfCode": 1674,
     "technologies": [
       "JavaScript",
       "CSS",
       "HTML"
-    ]
-  },
-  {
-    "code": "REPO_04",
-    "title": "Multi-person Behavior Recognition System",
-    "category": "ai/ml",
-    "image": "https://opengraph.githubassets.com/1/faheemgurkani/multi-person-behavior-recognition-system",
-    "tags": "#PYTHON #SHELL",
-    "description": "No description provided.",
-    "repoUrl": "https://github.com/faheemgurkani/multi-person-behavior-recognition-system",
-    "stars": 2,
-    "lastUpdated": "2 months ago",
-    "updatedAtRaw": "2026-05-12T09:57:17Z",
-    "linesOfCode": 2950,
-    "technologies": [
-      "Python",
-      "Shell"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "JavaScript",
+        "percent": 96.8
+      },
+      {
+        "name": "CSS",
+        "percent": 2
+      },
+      {
+        "name": "HTML",
+        "percent": 1.2
+      }
+    ],
+    "isPrivate": false
   },
   {
     "code": "REPO_05",
+    "title": "Bastionfed System Application",
+    "category": "ai/ml",
+    "image": "/placeholder.svg",
+    "tags": "#PYTHON #TYPESCRIPT #JUPYTER_NOTEBOOK",
+    "description": "No description provided.",
+    "stars": 1,
+    "lastUpdated": "2 months ago",
+    "updatedAtRaw": "2026-05-13T04:20:49Z",
+    "linesOfCode": 28933,
+    "technologies": [
+      "Python",
+      "TypeScript",
+      "Jupyter Notebook",
+      "CSS",
+      "JavaScript"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 67.4
+      },
+      {
+        "name": "TypeScript",
+        "percent": 30.9
+      },
+      {
+        "name": "Jupyter Notebook",
+        "percent": 1.2
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_06",
+    "title": "HyperKvasir 3-stage Classification Pipeline",
+    "category": "ai/ml",
+    "image": "/placeholder.svg",
+    "tags": "#JUPYTER_NOTEBOOK #PYTHON",
+    "description": "No description provided.",
+    "stars": 1,
+    "lastUpdated": "3 months ago",
+    "updatedAtRaw": "2026-04-21T19:05:22Z",
+    "linesOfCode": 223358,
+    "technologies": [
+      "Jupyter Notebook",
+      "Python"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 96.4
+      },
+      {
+        "name": "Python",
+        "percent": 3.6
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_07",
     "title": "Pocket-Agent",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/vyrothon-stage1",
@@ -77,17 +185,137 @@
     "description": "No description provided.",
     "repoUrl": "https://github.com/faheemgurkani/vyrothon-stage1",
     "stars": 0,
-    "lastUpdated": "2 months ago",
-    "updatedAtRaw": "2026-04-18T07:29:52Z",
+    "lastUpdated": "3 months ago",
+    "updatedAtRaw": "2026-04-18T07:29:49Z",
     "linesOfCode": 3294,
     "technologies": [
       "Jupyter Notebook",
       "Python",
       "Makefile"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 92.6
+      },
+      {
+        "name": "Python",
+        "percent": 6.4
+      },
+      {
+        "name": "Makefile",
+        "percent": 1
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_06",
+    "code": "REPO_08",
+    "title": "M&A Document Identification and IT/Technology Classification",
+    "category": "ai/ml",
+    "image": "/placeholder.svg",
+    "tags": "#PYTHON #TYPESCRIPT #SHELL",
+    "description": "No description provided.",
+    "stars": 2,
+    "lastUpdated": "4 months ago",
+    "updatedAtRaw": "2026-02-25T15:04:13Z",
+    "linesOfCode": 4395,
+    "technologies": [
+      "Python",
+      "TypeScript",
+      "Shell",
+      "CSS",
+      "JavaScript",
+      "Dockerfile"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 65.4
+      },
+      {
+        "name": "TypeScript",
+        "percent": 27.8
+      },
+      {
+        "name": "Shell",
+        "percent": 5.8
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_09",
+    "title": "MinutesFlow",
+    "category": "ai/ml",
+    "image": "/placeholder.svg",
+    "tags": "#PYTHON #RUST #TYPESCRIPT",
+    "description": "No description provided.",
+    "stars": 1,
+    "lastUpdated": "5 months ago",
+    "updatedAtRaw": "2026-02-19T09:24:03Z",
+    "linesOfCode": 103524,
+    "technologies": [
+      "Python",
+      "Rust",
+      "TypeScript",
+      "Shell",
+      "PowerShell",
+      "Batchfile",
+      "C++",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Dockerfile",
+      "Swift",
+      "CMake"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 49.5
+      },
+      {
+        "name": "Rust",
+        "percent": 25.4
+      },
+      {
+        "name": "TypeScript",
+        "percent": 16.2
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_10",
+    "title": "BastionFed: Multimodal Malware Detection",
+    "category": "ai/ml",
+    "image": "/placeholder.svg",
+    "tags": "#PYTHON #JUPYTER_NOTEBOOK",
+    "description": "No description provided.",
+    "stars": 1,
+    "forks": 1,
+    "lastUpdated": "5 months ago",
+    "updatedAtRaw": "2026-02-18T07:03:31Z",
+    "linesOfCode": 3796,
+    "technologies": [
+      "Python",
+      "Jupyter Notebook"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 72.8
+      },
+      {
+        "name": "Jupyter Notebook",
+        "percent": 27.2
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_11",
     "title": "AERIS - Air Emissions Regional Intelligence System",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/air-emissions-regional-intelligence-system",
@@ -96,7 +324,7 @@
     "repoUrl": "https://github.com/faheemgurkani/air-emissions-regional-intelligence-system",
     "stars": 1,
     "lastUpdated": "5 months ago",
-    "updatedAtRaw": "2026-02-15T15:16:48Z",
+    "updatedAtRaw": "2026-02-15T15:16:44Z",
     "linesOfCode": 9854,
     "technologies": [
       "Python",
@@ -105,10 +333,107 @@
       "CSS",
       "Mako",
       "JavaScript"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 80.4
+      },
+      {
+        "name": "Jupyter Notebook",
+        "percent": 10.5
+      },
+      {
+        "name": "TypeScript",
+        "percent": 8.6
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_07",
+    "code": "REPO_12",
+    "title": "🎉 Congratulations faheemgurkani! 🎉",
+    "category": "backend",
+    "image": "/placeholder.svg",
+    "tags": "#GITHUB",
+    "description": "Exercise: Resolve Merge Conflicts",
+    "stars": 0,
+    "lastUpdated": "5 months ago",
+    "updatedAtRaw": "2026-02-09T21:42:28Z",
+    "technologies": [],
+    "stackLanguages": [],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_13",
+    "title": "Congratulations! :tada:",
+    "category": "backend",
+    "image": "/placeholder.svg",
+    "tags": "#HTML",
+    "description": "Exercise: Review pull requests",
+    "stars": 0,
+    "lastUpdated": "5 months ago",
+    "updatedAtRaw": "2026-02-09T21:26:41Z",
+    "linesOfCode": 87,
+    "technologies": [
+      "HTML"
+    ],
+    "stackLanguages": [
+      {
+        "name": "HTML",
+        "percent": 100
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_14",
+    "title": "🎉 Congratulations faheemgurkani! 🎉",
+    "category": "backend",
+    "image": "/placeholder.svg",
+    "tags": "#GITHUB",
+    "description": "Exercise: Create a site or blog from your GitHub repositories with GitHub Pages",
+    "stars": 0,
+    "lastUpdated": "5 months ago",
+    "updatedAtRaw": "2026-02-09T20:50:00Z",
+    "technologies": [],
+    "stackLanguages": [],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_15",
+    "title": "TSViT HVAC Fault Detection & Diagnosis (FDD)",
+    "category": "ai/ml",
+    "image": "/placeholder.svg",
+    "tags": "#PYTHON #JUPYTER_NOTEBOOK #SHELL",
+    "description": "No description provided.",
+    "stars": 1,
+    "lastUpdated": "6 months ago",
+    "updatedAtRaw": "2026-01-01T22:37:32Z",
+    "linesOfCode": 4929,
+    "technologies": [
+      "Python",
+      "Jupyter Notebook",
+      "Shell"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 61
+      },
+      {
+        "name": "Jupyter Notebook",
+        "percent": 37.9
+      },
+      {
+        "name": "Shell",
+        "percent": 1.1
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_16",
     "title": "MAPPO",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/ppo-cooperative-marl-in-street-fighter-environment",
@@ -117,7 +442,7 @@
     "repoUrl": "https://github.com/faheemgurkani/ppo-cooperative-marl-in-street-fighter-environment",
     "stars": 1,
     "lastUpdated": "7 months ago",
-    "updatedAtRaw": "2025-12-08T10:05:05Z",
+    "updatedAtRaw": "2025-12-08T10:05:02Z",
     "linesOfCode": 20369,
     "technologies": [
       "Python",
@@ -126,10 +451,25 @@
       "C",
       "Lua",
       "CMake"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 83.1
+      },
+      {
+        "name": "C++",
+        "percent": 11.6
+      },
+      {
+        "name": "Shell",
+        "percent": 4
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_08",
+    "code": "REPO_17",
     "title": "Driver Assistance System using RT-DETR",
     "category": "computer vision",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/driver-assistance-system-using-RT-DETR",
@@ -138,7 +478,7 @@
     "repoUrl": "https://github.com/faheemgurkani/driver-assistance-system-using-RT-DETR",
     "stars": 1,
     "lastUpdated": "7 months ago",
-    "updatedAtRaw": "2025-12-05T21:13:31Z",
+    "updatedAtRaw": "2025-12-05T21:13:27Z",
     "linesOfCode": 9288,
     "technologies": [
       "Python",
@@ -146,10 +486,59 @@
       "CSS",
       "Shell",
       "JavaScript"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 93
+      },
+      {
+        "name": "TypeScript",
+        "percent": 6
+      },
+      {
+        "name": "CSS",
+        "percent": 0.5
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_09",
+    "code": "REPO_18",
+    "title": "AgentProcure",
+    "category": "ai/ml",
+    "image": "/placeholder.svg",
+    "tags": "#PYTHON #JAVASCRIPT #CSS",
+    "description": "No description provided.",
+    "stars": 1,
+    "lastUpdated": "7 months ago",
+    "updatedAtRaw": "2025-11-25T16:37:22Z",
+    "linesOfCode": 7043,
+    "technologies": [
+      "Python",
+      "JavaScript",
+      "CSS",
+      "Shell",
+      "HTML"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 85.4
+      },
+      {
+        "name": "JavaScript",
+        "percent": 14
+      },
+      {
+        "name": "CSS",
+        "percent": 0.2
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_19",
     "title": "Mood-Sensitive Chatbot",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/mood-sensitive-agentic-chatbot",
@@ -158,17 +547,32 @@
     "repoUrl": "https://github.com/faheemgurkani/mood-sensitive-agentic-chatbot",
     "stars": 1,
     "lastUpdated": "8 months ago",
-    "updatedAtRaw": "2025-11-17T12:10:35Z",
+    "updatedAtRaw": "2025-11-17T12:05:00Z",
     "linesOfCode": 5538,
     "technologies": [
       "Python",
       "TypeScript",
       "JavaScript",
       "CSS"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 70.8
+      },
+      {
+        "name": "TypeScript",
+        "percent": 28.6
+      },
+      {
+        "name": "JavaScript",
+        "percent": 0.4
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_10",
+    "code": "REPO_20",
     "title": "AI Captain - Real-Time Maritime Routing Prototype",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/real-time-ai-powered-maritime-routing",
@@ -177,17 +581,32 @@
     "repoUrl": "https://github.com/faheemgurkani/real-time-ai-powered-maritime-routing",
     "stars": 1,
     "lastUpdated": "8 months ago",
-    "updatedAtRaw": "2025-11-11T14:22:43Z",
+    "updatedAtRaw": "2025-11-11T14:20:17Z",
     "linesOfCode": 2073,
     "technologies": [
       "Python",
       "TypeScript",
       "JavaScript",
       "CSS"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 57.9
+      },
+      {
+        "name": "TypeScript",
+        "percent": 41.4
+      },
+      {
+        "name": "JavaScript",
+        "percent": 0.6
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_11",
+    "code": "REPO_21",
     "title": "NeurIPS Google Code Golf Championship 2025 - Self-Verifying Generation Pipeline",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/neurips-google-code-golf-championship-2025",
@@ -196,15 +615,26 @@
     "repoUrl": "https://github.com/faheemgurkani/neurips-google-code-golf-championship-2025",
     "stars": 1,
     "lastUpdated": "8 months ago",
-    "updatedAtRaw": "2025-11-09T23:10:38Z",
+    "updatedAtRaw": "2025-11-09T23:10:35Z",
     "linesOfCode": 928,
     "technologies": [
       "Python",
       "Shell"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 98.4
+      },
+      {
+        "name": "Shell",
+        "percent": 1.6
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_12",
+    "code": "REPO_22",
     "title": "Agentic RAG Multi-Project Research Lab",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/agentic-rag-multi-project-research-lab",
@@ -213,15 +643,26 @@
     "repoUrl": "https://github.com/faheemgurkani/agentic-rag-multi-project-research-lab",
     "stars": 1,
     "lastUpdated": "9 months ago",
-    "updatedAtRaw": "2025-10-14T16:05:25Z",
+    "updatedAtRaw": "2025-10-12T19:55:13Z",
     "linesOfCode": 1149,
     "technologies": [
       "Python",
       "Shell"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 96.5
+      },
+      {
+        "name": "Shell",
+        "percent": 3.5
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_13",
+    "code": "REPO_23",
     "title": "CrisisSim: Agentic AI for Disaster Response",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/crisis-simulator",
@@ -230,14 +671,49 @@
     "repoUrl": "https://github.com/faheemgurkani/crisis-simulator",
     "stars": 1,
     "lastUpdated": "9 months ago",
-    "updatedAtRaw": "2025-10-12T09:33:07Z",
+    "updatedAtRaw": "2025-10-12T09:33:04Z",
     "linesOfCode": 1411,
     "technologies": [
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_14",
+    "code": "REPO_24",
+    "title": "Multi-person Behavior Recognition System",
+    "category": "ai/ml",
+    "image": "https://opengraph.githubassets.com/1/faheemgurkani/multi-person-behavior-recognition-system",
+    "tags": "#PYTHON #SHELL",
+    "description": "No description provided.",
+    "repoUrl": "https://github.com/faheemgurkani/multi-person-behavior-recognition-system",
+    "stars": 2,
+    "lastUpdated": "11 months ago",
+    "updatedAtRaw": "2025-08-23T11:28:54Z",
+    "linesOfCode": 2950,
+    "technologies": [
+      "Python",
+      "Shell"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 99.7
+      },
+      {
+        "name": "Shell",
+        "percent": 0.3
+      }
+    ],
+    "isPrivate": false
+  },
+  {
+    "code": "REPO_25",
     "title": "QNNX",
     "category": "backend",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/QNNX",
@@ -246,17 +722,32 @@
     "repoUrl": "https://github.com/faheemgurkani/QNNX",
     "stars": 1,
     "forks": 5,
-    "lastUpdated": "10 months ago",
-    "updatedAtRaw": "2025-08-22T07:24:07Z",
+    "lastUpdated": "11 months ago",
+    "updatedAtRaw": "2025-08-22T07:24:02Z",
     "linesOfCode": 4730,
     "technologies": [
       "JavaScript",
       "CSS",
       "HTML"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "JavaScript",
+        "percent": 75.8
+      },
+      {
+        "name": "CSS",
+        "percent": 23.9
+      },
+      {
+        "name": "HTML",
+        "percent": 0.3
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_15",
+    "code": "REPO_26",
     "title": "AgriGemma: A Multilingual, Multimodal AI Assistant for Sustainable Agriculture",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/smart-farm-assistant",
@@ -265,14 +756,21 @@
     "repoUrl": "https://github.com/faheemgurkani/smart-farm-assistant",
     "stars": 1,
     "lastUpdated": "11 months ago",
-    "updatedAtRaw": "2025-08-06T22:50:12Z",
+    "updatedAtRaw": "2025-08-06T22:50:09Z",
     "linesOfCode": 2611,
     "technologies": [
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_16",
+    "code": "REPO_27",
     "title": "Business Card Contact Extractor",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/ocr-LLM-based-business-card-information-extractor",
@@ -281,14 +779,21 @@
     "repoUrl": "https://github.com/faheemgurkani/ocr-LLM-based-business-card-information-extractor",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-07-10T03:57:20Z",
+    "updatedAtRaw": "2025-07-10T03:57:17Z",
     "linesOfCode": 137,
     "technologies": [
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_17",
+    "code": "REPO_28",
     "title": "Privacy Agent MCP",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/privacy-agent-mcp",
@@ -297,14 +802,21 @@
     "repoUrl": "https://github.com/faheemgurkani/privacy-agent-mcp",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-07-02T23:35:24Z",
+    "updatedAtRaw": "2025-07-02T23:35:21Z",
     "linesOfCode": 353,
     "technologies": [
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_18",
+    "code": "REPO_29",
     "title": "Agentic Workflow for Tabular Data Using Langraph and OpenAI",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/agentic-workflow-for-tabular-data-using-langraph-and-openai",
@@ -313,14 +825,21 @@
     "repoUrl": "https://github.com/faheemgurkani/agentic-workflow-for-tabular-data-using-langraph-and-openai",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-07-01T16:01:53Z",
+    "updatedAtRaw": "2025-07-01T16:01:50Z",
     "linesOfCode": 891,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_19",
+    "code": "REPO_30",
     "title": "Multi Agent Research and Presentation Orchestrator System Using Crewai",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/multi-agent-research-and-presentation-orchestrator-system-using-crewai",
@@ -329,31 +848,21 @@
     "repoUrl": "https://github.com/faheemgurkani/multi-agent-research-and-presentation-orchestrator-system-using-crewai",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-07-01T15:51:19Z",
+    "updatedAtRaw": "2025-07-01T15:51:16Z",
     "linesOfCode": 167,
     "technologies": [
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_20",
-    "title": "Traffic Sign Classification Using Classical Digital Image Processing Techniques",
-    "category": "computer vision",
-    "image": "https://opengraph.githubassets.com/1/faheemgurkani/traffic-sign-classification-using-classical-digital-image-processing-techniques",
-    "tags": "#PYTHON #JUPYTER_NOTEBOOK",
-    "description": "No description provided.",
-    "repoUrl": "https://github.com/faheemgurkani/traffic-sign-classification-using-classical-digital-image-processing-techniques",
-    "stars": 1,
-    "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-06-27T20:08:37Z",
-    "linesOfCode": 1429,
-    "technologies": [
-      "Python",
-      "Jupyter Notebook"
-    ]
-  },
-  {
-    "code": "REPO_21",
+    "code": "REPO_31",
     "title": "RAG Workflows",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/rag-workflows",
@@ -362,30 +871,21 @@
     "repoUrl": "https://github.com/faheemgurkani/rag-workflows",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-06-25T22:06:45Z",
+    "updatedAtRaw": "2025-06-25T22:06:42Z",
     "linesOfCode": 1419,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_22",
-    "title": "Counting Objects in Zones Using YOLO and Detectron2",
-    "category": "computer vision",
-    "image": "https://opengraph.githubassets.com/1/faheemgurkani/counting-objects-in-zones-using-YOLO-and-detectron2",
-    "tags": "#JUPYTER_NOTEBOOK",
-    "description": "No description provided.",
-    "repoUrl": "https://github.com/faheemgurkani/counting-objects-in-zones-using-YOLO-and-detectron2",
-    "stars": 1,
-    "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-06-24T22:50:37Z",
-    "linesOfCode": 1449,
-    "technologies": [
-      "Jupyter Notebook"
-    ]
-  },
-  {
-    "code": "REPO_23",
+    "code": "REPO_32",
     "title": "Object Tracking Using Classical Tracking Approaches",
     "category": "computer vision",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/object-tracking-using-classical-tracking-approaches",
@@ -394,31 +894,44 @@
     "repoUrl": "https://github.com/faheemgurkani/object-tracking-using-classical-tracking-approaches",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-06-24T22:50:36Z",
+    "updatedAtRaw": "2025-06-24T22:49:49Z",
     "linesOfCode": 188,
     "technologies": [
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_24",
-    "title": "Roman Urdu Sentiment Evaluation",
-    "category": "ai/ml",
-    "image": "https://opengraph.githubassets.com/1/faheemgurkani/roman-urdu-sentiment-evaluation-using-lexicon-based-approach",
-    "tags": "#JUPYTER_NOTEBOOK #PYTHON",
+    "code": "REPO_33",
+    "title": "Counting Objects in Zones Using YOLO and Detectron2",
+    "category": "computer vision",
+    "image": "https://opengraph.githubassets.com/1/faheemgurkani/counting-objects-in-zones-using-YOLO-and-detectron2",
+    "tags": "#JUPYTER_NOTEBOOK",
     "description": "No description provided.",
-    "repoUrl": "https://github.com/faheemgurkani/roman-urdu-sentiment-evaluation-using-lexicon-based-approach",
+    "repoUrl": "https://github.com/faheemgurkani/counting-objects-in-zones-using-YOLO-and-detectron2",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-06-24T22:23:50Z",
-    "linesOfCode": 2618,
+    "updatedAtRaw": "2025-06-24T22:45:06Z",
+    "linesOfCode": 1449,
     "technologies": [
-      "Jupyter Notebook",
-      "Python"
-    ]
+      "Jupyter Notebook"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_25",
+    "code": "REPO_34",
     "title": "Text Controlled Object Relocation and Relighting",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/text-controlled-object-relocation-and-relighting",
@@ -427,14 +940,49 @@
     "repoUrl": "https://github.com/faheemgurkani/text-controlled-object-relocation-and-relighting",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-06-22T19:49:59Z",
+    "updatedAtRaw": "2025-06-22T19:49:56Z",
     "linesOfCode": 1339,
     "technologies": [
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_26",
+    "code": "REPO_35",
+    "title": "Traffic Sign Classification Using Classical Digital Image Processing Techniques",
+    "category": "computer vision",
+    "image": "https://opengraph.githubassets.com/1/faheemgurkani/traffic-sign-classification-using-classical-digital-image-processing-techniques",
+    "tags": "#PYTHON #JUPYTER_NOTEBOOK",
+    "description": "No description provided.",
+    "repoUrl": "https://github.com/faheemgurkani/traffic-sign-classification-using-classical-digital-image-processing-techniques",
+    "stars": 1,
+    "lastUpdated": "1 years ago",
+    "updatedAtRaw": "2025-06-04T19:34:13Z",
+    "linesOfCode": 1429,
+    "technologies": [
+      "Python",
+      "Jupyter Notebook"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 61
+      },
+      {
+        "name": "Jupyter Notebook",
+        "percent": 39
+      }
+    ],
+    "isPrivate": false
+  },
+  {
+    "code": "REPO_36",
     "title": "SCConv ResNet CIFAR",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/scconv-resnet-cifar",
@@ -443,14 +991,21 @@
     "repoUrl": "https://github.com/faheemgurkani/scconv-resnet-cifar",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-06-12T16:32:16Z",
+    "updatedAtRaw": "2025-06-04T19:31:16Z",
     "linesOfCode": 3156,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_27",
+    "code": "REPO_37",
     "title": "TrendStory Microservice",
     "category": "backend",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/trendstory-microservice",
@@ -459,16 +1014,53 @@
     "repoUrl": "https://github.com/faheemgurkani/trendstory-microservice",
     "stars": 3,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-05-05T19:00:48Z",
+    "updatedAtRaw": "2025-05-05T18:29:50Z",
     "linesOfCode": 2556,
     "technologies": [
       "Python",
       "Shell",
       "Dockerfile"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 96.2
+      },
+      {
+        "name": "Shell",
+        "percent": 2.2
+      },
+      {
+        "name": "Dockerfile",
+        "percent": 1.6
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_28",
+    "code": "REPO_38",
+    "title": "Github Issues Manager MCP",
+    "category": "ai/ml",
+    "image": "/placeholder.svg",
+    "tags": "#TYPESCRIPT",
+    "description": "No description provided.",
+    "stars": 1,
+    "lastUpdated": "1 years ago",
+    "updatedAtRaw": "2025-04-21T20:19:25Z",
+    "linesOfCode": 157,
+    "technologies": [
+      "TypeScript"
+    ],
+    "stackLanguages": [
+      {
+        "name": "TypeScript",
+        "percent": 100
+      }
+    ],
+    "isPrivate": true
+  },
+  {
+    "code": "REPO_39",
     "title": "Flask Chat Engine",
     "category": "backend",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/flask-chat-engine",
@@ -477,16 +1069,31 @@
     "repoUrl": "https://github.com/faheemgurkani/flask-chat-engine",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-04-03T11:07:55Z",
+    "updatedAtRaw": "2025-04-03T11:07:52Z",
     "linesOfCode": 1108,
     "technologies": [
       "Python",
       "CSS",
       "HTML"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 58.7
+      },
+      {
+        "name": "CSS",
+        "percent": 25.5
+      },
+      {
+        "name": "HTML",
+        "percent": 15.8
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_29",
+    "code": "REPO_40",
     "title": "Activation Impact Study in a Scratch Built Neural Network",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/activation-impact-study-in-a-scratch-built-neural-network",
@@ -495,14 +1102,21 @@
     "repoUrl": "https://github.com/faheemgurkani/activation-impact-study-in-a-scratch-built-neural-network",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-27T14:11:27Z",
+    "updatedAtRaw": "2025-03-27T14:11:19Z",
     "linesOfCode": 726,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_30",
+    "code": "REPO_41",
     "title": "Flowgraph Based Parameter Optimizer",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/flowgraph-based-parameter-optimizer",
@@ -511,14 +1125,49 @@
     "repoUrl": "https://github.com/faheemgurkani/flowgraph-based-parameter-optimizer",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-27T14:08:14Z",
+    "updatedAtRaw": "2025-03-27T13:59:38Z",
     "linesOfCode": 941,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_31",
+    "code": "REPO_42",
+    "title": "Roman Urdu Sentiment Evaluation",
+    "category": "ai/ml",
+    "image": "https://opengraph.githubassets.com/1/faheemgurkani/roman-urdu-sentiment-evaluation-using-lexicon-based-approach",
+    "tags": "#JUPYTER_NOTEBOOK #PYTHON",
+    "description": "No description provided.",
+    "repoUrl": "https://github.com/faheemgurkani/roman-urdu-sentiment-evaluation-using-lexicon-based-approach",
+    "stars": 1,
+    "lastUpdated": "1 years ago",
+    "updatedAtRaw": "2025-03-24T15:07:31Z",
+    "linesOfCode": 2618,
+    "technologies": [
+      "Jupyter Notebook",
+      "Python"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 98.4
+      },
+      {
+        "name": "Python",
+        "percent": 1.6
+      }
+    ],
+    "isPrivate": false
+  },
+  {
+    "code": "REPO_43",
     "title": "Action Segmentation Using MS-TCN",
     "category": "computer vision",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/action-segmentation-using-ms-tcn",
@@ -528,15 +1177,26 @@
     "stars": 1,
     "forks": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-21T19:54:42Z",
+    "updatedAtRaw": "2025-03-21T19:54:39Z",
     "linesOfCode": 5302,
     "technologies": [
       "Python",
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 50.8
+      },
+      {
+        "name": "Jupyter Notebook",
+        "percent": 49.2
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_32",
+    "code": "REPO_44",
     "title": "Parallel Computing Simulations Using OPENMP",
     "category": "systems",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/parallel-computing-simulations-using-openmp",
@@ -545,14 +1205,21 @@
     "repoUrl": "https://github.com/faheemgurkani/parallel-computing-simulations-using-openmp",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-19T18:23:37Z",
+    "updatedAtRaw": "2025-03-19T18:22:43Z",
     "linesOfCode": 414,
     "technologies": [
       "C++"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "C++",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_33",
+    "code": "REPO_45",
     "title": "Frequency Domain Image Enhancement",
     "category": "computer vision",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/frequency-domain-image-enhancement",
@@ -561,14 +1228,21 @@
     "repoUrl": "https://github.com/faheemgurkani/frequency-domain-image-enhancement",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-18T18:25:13Z",
+    "updatedAtRaw": "2025-03-18T18:25:09Z",
     "linesOfCode": 6650,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_34",
+    "code": "REPO_46",
     "title": "Language Modelling for Roman Urdu",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/language-modelling-for-roman-urdu",
@@ -577,15 +1251,26 @@
     "repoUrl": "https://github.com/faheemgurkani/language-modelling-for-roman-urdu",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-18T06:41:02Z",
+    "updatedAtRaw": "2025-03-10T08:44:09Z",
     "linesOfCode": 426,
     "technologies": [
       "Jupyter Notebook",
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 90.2
+      },
+      {
+        "name": "Python",
+        "percent": 9.8
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_35",
+    "code": "REPO_47",
     "title": "Roman Urdu BPE Tokenizer",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/roman-urdu-bpe-tokenizer",
@@ -594,14 +1279,21 @@
     "repoUrl": "https://github.com/faheemgurkani/roman-urdu-bpe-tokenizer",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-10T01:12:26Z",
+    "updatedAtRaw": "2025-03-10T01:12:23Z",
     "linesOfCode": 252,
     "technologies": [
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_36",
+    "code": "REPO_48",
     "title": "Duck Shooter Game Using x8086 Assembly Language",
     "category": "systems",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/duck-shooter-game-x8086-ASM",
@@ -610,14 +1302,21 @@
     "repoUrl": "https://github.com/faheemgurkani/duck-shooter-game-x8086-ASM",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-01T20:03:24Z",
+    "updatedAtRaw": "2025-03-01T20:03:21Z",
     "linesOfCode": 2654,
     "technologies": [
       "Assembly"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Assembly",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_37",
+    "code": "REPO_49",
     "title": "Age and Gender Prediction Using Multitask Learning",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/age-and-gender-prediction-using-multitask-learning",
@@ -626,14 +1325,21 @@
     "repoUrl": "https://github.com/faheemgurkani/age-and-gender-prediction-using-multitask-learning",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-01T19:08:17Z",
+    "updatedAtRaw": "2025-03-01T19:08:14Z",
     "linesOfCode": 12210,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_38",
+    "code": "REPO_50",
     "title": "Facial Keypoint Detection With Multi Regression Learning",
     "category": "computer vision",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/facial-keypoint-detection-with-multi-regression-learning",
@@ -642,14 +1348,21 @@
     "repoUrl": "https://github.com/faheemgurkani/facial-keypoint-detection-with-multi-regression-learning",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-03-01T19:05:13Z",
+    "updatedAtRaw": "2025-03-01T19:05:10Z",
     "linesOfCode": 42672,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_39",
+    "code": "REPO_51",
     "title": "Malaria Classification and Interpretability with Grad-CAM",
     "category": "computer vision",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/malaria-classification-and-interpretability-with-grad-cam",
@@ -658,14 +1371,21 @@
     "repoUrl": "https://github.com/faheemgurkani/malaria-classification-and-interpretability-with-grad-cam",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-02-26T12:54:31Z",
+    "updatedAtRaw": "2025-02-26T12:54:28Z",
     "linesOfCode": 16642,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_40",
+    "code": "REPO_52",
     "title": "Digital Image Processing Fundamentals",
     "category": "computer vision",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/digital-image-processing-fundamentals",
@@ -674,15 +1394,26 @@
     "repoUrl": "https://github.com/faheemgurkani/digital-image-processing-fundamentals",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-02-16T12:39:32Z",
+    "updatedAtRaw": "2025-02-16T12:39:16Z",
     "linesOfCode": 27847,
     "technologies": [
       "Jupyter Notebook",
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 97.1
+      },
+      {
+        "name": "Python",
+        "percent": 2.9
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_41",
+    "code": "REPO_53",
     "title": "Pthreads Matrix List Cpu-affinity",
     "category": "systems",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/pthreads-matrix-list-cpu-affinity",
@@ -691,14 +1422,21 @@
     "repoUrl": "https://github.com/faheemgurkani/pthreads-matrix-list-cpu-affinity",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-02-16T12:10:14Z",
+    "updatedAtRaw": "2025-02-16T12:10:11Z",
     "linesOfCode": 588,
     "technologies": [
       "C++"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "C++",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_42",
+    "code": "REPO_54",
     "title": "Predictive Assesment of Speaker Age and Gender Profiling using Audio Features",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/predictive-assesment-of-speaker-age-and-gender-profiling-using-audio-features",
@@ -707,15 +1445,26 @@
     "repoUrl": "https://github.com/faheemgurkani/predictive-assesment-of-speaker-age-and-gender-profiling-using-audio-features",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-02-04T00:23:54Z",
+    "updatedAtRaw": "2025-02-04T00:23:51Z",
     "linesOfCode": 46833,
     "technologies": [
       "Jupyter Notebook",
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 99.9
+      },
+      {
+        "name": "Python",
+        "percent": 0.1
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_43",
+    "code": "REPO_55",
     "title": "MapReduce Framework Using OS-Level Parallelism and Synchronization",
     "category": "systems",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/map-reduce-framework-using-os-level-parallelism-and-synchronization",
@@ -724,14 +1473,21 @@
     "repoUrl": "https://github.com/faheemgurkani/map-reduce-framework-using-os-level-parallelism-and-synchronization",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2025-02-03T04:37:15Z",
+    "updatedAtRaw": "2025-02-03T04:37:13Z",
     "linesOfCode": 185,
     "technologies": [
       "C++"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "C++",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_44",
+    "code": "REPO_56",
     "title": "Multiplayer Grid Game With Threading",
     "category": "systems",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/multiplayer-grid-game-with-threading",
@@ -740,31 +1496,21 @@
     "repoUrl": "https://github.com/faheemgurkani/multiplayer-grid-game-with-threading",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2024-11-20T06:57:40Z",
+    "updatedAtRaw": "2024-11-20T06:56:54Z",
     "linesOfCode": 203,
     "technologies": [
       "C++"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "C++",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_45",
-    "title": "Probabilitic Classification Algorithm Analysis",
-    "category": "ai/ml",
-    "image": "https://opengraph.githubassets.com/1/faheemgurkani/probabilistic-classification-algorithm-analysis",
-    "tags": "#JUPYTER_NOTEBOOK #PYTHON",
-    "description": "No description provided.",
-    "repoUrl": "https://github.com/faheemgurkani/probabilistic-classification-algorithm-analysis",
-    "stars": 1,
-    "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2024-10-29T05:10:42Z",
-    "linesOfCode": 855,
-    "technologies": [
-      "Jupyter Notebook",
-      "Python"
-    ]
-  },
-  {
-    "code": "REPO_46",
+    "code": "REPO_57",
     "title": "Sorting Algorithm Analysis",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/sorting-algorithm-analysis",
@@ -773,14 +1519,49 @@
     "repoUrl": "https://github.com/faheemgurkani/sorting-algorithm-analysis",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2024-10-29T05:10:31Z",
+    "updatedAtRaw": "2024-10-29T05:10:28Z",
     "linesOfCode": 1197,
     "technologies": [
       "Jupyter Notebook"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   },
   {
-    "code": "REPO_47",
+    "code": "REPO_58",
+    "title": "Probabilitic Classification Algorithm Analysis",
+    "category": "ai/ml",
+    "image": "https://opengraph.githubassets.com/1/faheemgurkani/probabilistic-classification-algorithm-analysis",
+    "tags": "#JUPYTER_NOTEBOOK #PYTHON",
+    "description": "No description provided.",
+    "repoUrl": "https://github.com/faheemgurkani/probabilistic-classification-algorithm-analysis",
+    "stars": 1,
+    "lastUpdated": "1 years ago",
+    "updatedAtRaw": "2024-10-29T05:05:51Z",
+    "linesOfCode": 855,
+    "technologies": [
+      "Jupyter Notebook",
+      "Python"
+    ],
+    "stackLanguages": [
+      {
+        "name": "Jupyter Notebook",
+        "percent": 74.9
+      },
+      {
+        "name": "Python",
+        "percent": 25.1
+      }
+    ],
+    "isPrivate": false
+  },
+  {
+    "code": "REPO_59",
     "title": "Sorting Algorithm Visualizer",
     "category": "ai/ml",
     "image": "https://opengraph.githubassets.com/1/faheemgurkani/sorting-algorithm-visualizer",
@@ -789,10 +1570,17 @@
     "repoUrl": "https://github.com/faheemgurkani/sorting-algorithm-visualizer",
     "stars": 1,
     "lastUpdated": "1 years ago",
-    "updatedAtRaw": "2024-10-29T04:44:43Z",
+    "updatedAtRaw": "2024-10-29T04:44:39Z",
     "linesOfCode": 623,
     "technologies": [
       "Python"
-    ]
+    ],
+    "stackLanguages": [
+      {
+        "name": "Python",
+        "percent": 100
+      }
+    ],
+    "isPrivate": false
   }
 ]
