@@ -34,7 +34,7 @@ export const SPOTIFY_UID = "31s7sk5rygjmtvf7pv4v7tlpg3di"
 export const SPOTIFY_PROFILE_URL =
   `https://spotify-github-profile.kittinanx.com/api/view?uid=${SPOTIFY_UID}&redirect=true`
 export const SPOTIFY_WIDGET_URL =
-  `https://spotify-github-profile.kittinanx.com/api/view?uid=${SPOTIFY_UID}&cover_image=true&theme=novatorem&show_offline=false&background_color=0d0d0d&interchange=false&bar_color=737373&bar_color_cover=false`
+  `https://spotify-github-profile.kittinanx.com/api/view?uid=${SPOTIFY_UID}&cover_image=true&theme=novatorem&show_offline=false&background_color=121212&interchange=true&profanity=false&hide_remaster=false&bar_color=53b14f&bar_color_cover=false`
 
 export const CV_DOWNLOAD = {
   label: "AI/ML · CV · SWE · Research Engineer",
