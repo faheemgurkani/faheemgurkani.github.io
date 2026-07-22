@@ -1,13 +1,19 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ActivityCalendar } from "react-activity-calendar"
+import dynamic from "next/dynamic"
 import {
   fetchContributionCalendar,
   type ContributionCalendar,
 } from "@/lib/github"
 import { GITHUB_USERNAME } from "@/lib/portfolio-data"
 import { WindowControls } from "@/components/window-controls"
+
+const ActivityCalendar = dynamic(
+  () =>
+    import("react-activity-calendar").then((mod) => mod.ActivityCalendar),
+  { ssr: false },
+)
 
 const REFRESH_MS = 30 * 60 * 1000
 const BLOCK_MARGIN = 3
@@ -101,40 +107,43 @@ export function GitHubHeatmap() {
         </div>
 
         <div className="heatmap-wrap" ref={wrapRef}>
-          <ActivityCalendar
-            data={calendar?.contributions ?? []}
-            loading={loading}
-            theme={THEME}
-            colorScheme="dark"
-            blockSize={blockSize}
-            blockMargin={BLOCK_MARGIN}
-            blockRadius={0}
-            fontSize={11}
-            maxLevel={4}
-            showWeekdayLabels={["mon", "wed", "fri"]}
-            labels={{
-              totalCount: "{{count}} commits logged",
-              legend: { less: "Less", more: "More" },
-            }}
-            tooltips={{
-              activity: {
-                text: (activity) => {
-                  const count = activity.count
-                  const label = count === 1 ? "contribution" : "contributions"
-                  const date = new Date(`${activity.date}T12:00:00`)
-                  const when = date.toLocaleDateString(undefined, {
-                    weekday: "short",
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })
-                  return `${count} ${label} on ${when}`
+          {calendar ? (
+            <ActivityCalendar
+              data={calendar.contributions}
+              theme={THEME}
+              colorScheme="dark"
+              blockSize={blockSize}
+              blockMargin={BLOCK_MARGIN}
+              blockRadius={0}
+              fontSize={11}
+              maxLevel={4}
+              showWeekdayLabels={["mon", "wed", "fri"]}
+              labels={{
+                totalCount: "{{count}} commits logged",
+                legend: { less: "Less", more: "More" },
+              }}
+              tooltips={{
+                activity: {
+                  text: (activity) => {
+                    const count = activity.count
+                    const label = count === 1 ? "contribution" : "contributions"
+                    const date = new Date(`${activity.date}T12:00:00`)
+                    const when = date.toLocaleDateString(undefined, {
+                      weekday: "short",
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })
+                    return `${count} ${label} on ${when}`
+                  },
+                  placement: "top",
+                  withArrow: true,
                 },
-                placement: "top",
-                withArrow: true,
-              },
-            }}
-          />
+              }}
+            />
+          ) : (
+            <div className="heatmap-loading" aria-busy={loading} aria-hidden />
+          )}
         </div>
       </div>
     </div>

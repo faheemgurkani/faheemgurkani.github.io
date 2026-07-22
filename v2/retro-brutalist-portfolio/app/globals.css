@@ -1711,6 +1711,10 @@ a.sidebar-info-value:hover {
   padding-bottom: 4px;
 }
 
+.heatmap-loading {
+  min-height: 140px;
+}
+
 .heatmap-wrap .react-activity-calendar {
   width: 100%;
   max-width: 100%;
@@ -1978,6 +1982,7 @@ a.sidebar-info-value:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  align-items: stretch;
 }
 
 .project-card {
@@ -1987,6 +1992,7 @@ a.sidebar-info-value:hover {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 100%;
 }
 
 .project-card:hover {
@@ -2004,6 +2010,7 @@ a.sidebar-info-value:hover {
   flex-direction: column;
   flex: 1;
   gap: 10px;
+  min-height: 0;
 }
 
 .project-card-top {
@@ -2011,6 +2018,8 @@ a.sidebar-info-value:hover {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  min-height: 1.5rem;
+  flex-shrink: 0;
 }
 
 .project-card-top .project-tag {
@@ -2080,12 +2089,18 @@ a.sidebar-info-value:hover {
   font-size: 0.8rem;
   color: var(--text-secondary);
   line-height: 1.55;
-  flex-grow: 1;
   margin: 0;
+}
+
+.project-desc:not(.project-desc-wip) {
+  flex: 1 1 auto;
+  min-height: 2.5rem;
 }
 
 .project-desc-wip {
   margin: 0;
+  flex: 0 0 auto;
+  min-height: 0;
 }
 
 .project-wip-badge {
@@ -2137,6 +2152,17 @@ a.sidebar-info-value:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  min-height: 3.75rem;
+  align-content: flex-start;
+  flex-shrink: 0;
+}
+
+.project-card-private .project-kpis {
+  margin-top: auto;
+}
+
+.project-card-private .project-stack {
+  margin-top: 0;
 }
 
 .project-kpi {
@@ -2216,6 +2242,11 @@ a.sidebar-info-value:hover {
   font-weight: 700;
   margin: 0 0 4px;
   line-height: 1.35;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .marquee-container {
